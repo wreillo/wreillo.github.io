@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Behind the keyboard ⌨️</title>
+<link>https://www.wreillo.com/posts.html</link>
+<atom:link href="https://www.wreillo.com/posts.xml" rel="self" type="application/rss+xml"/>
+<description>this is a test</description>
+<generator>quarto-1.3.450</generator>
+<lastBuildDate>Sat, 16 Sep 2023 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>OpenStreetMap on R + Quarto</title>
+  <dc:creator>William G. Rodriguez Reillo</dc:creator>
+  <link>https://www.wreillo.com/posts/leaflet/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="mi-alma-mater" class="level2">
+<h2 class="anchored" data-anchor-id="mi-alma-mater">Mi alma mater</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(leaflet)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">m <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">leaflet</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addTiles</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add default OpenStreetMap map tiles</span></span>
+<span id="cb1-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">addMarkers</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lng=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">66.74041348869325</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lat=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18.468307266376055</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">popup=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mi Alma Mater🐺"</span>)</span>
+<span id="cb1-6">m</span></code></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f75631adb8cab41027d1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f75631adb8cab41027d1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[18.46830726637605,-66.74041348869325,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Mi Alma Mater🐺",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[18.46830726637605,18.46830726637605],"lng":[-66.74041348869325,-66.74041348869325]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>maps</category>
+  <guid>https://www.wreillo.com/posts/leaflet/index.html</guid>
+  <pubDate>Sat, 16 Sep 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://www.wreillo.com/posts/leaflet/featured.png" medium="image" type="image/png" height="84" width="144"/>
+</item>
+<item>
+  <title>Research Computing Organizations</title>
+  <dc:creator>William G. Rodriguez Reillo</dc:creator>
+  <link>https://www.wreillo.com/posts/rc/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="research-computing-organizations" class="level2">
+<h2 class="anchored" data-anchor-id="research-computing-organizations">Research Computing Organizations</h2>
+<p>Simple R script to pull GitHub profiles matching for <em>research computing</em> in the organization name</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'rlist'</span>)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dplyr'</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">quietly =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'rvest'</span>)</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'xml2'</span>)</span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'DT'</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## Search Research Computing organizations</span></span>
+<span id="cb6-2">rc.org <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://api.github.com/search/users?q=research+computing+in:name+type:org&amp;type=Users&amp;per_page=100&amp;page=%d"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.load</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"json"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.ungroup</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">level =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-4">  .[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(.) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'login'</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> as.character</span>
+<span id="cb6-5"></span>
+<span id="cb6-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Scrape Function</span></span>
+<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   The resulted on n=130 "Research Computing" organizations. </span></span>
+<span id="cb6-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#   To waive the GH API rate limit, github_scrape(...) was used</span></span>
+<span id="cb6-9">github_scrape <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(org_names){</span>
+<span id="cb6-10"></span>
+<span id="cb6-11">  URL <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/"</span>, org_names)</span>
+<span id="cb6-12">  edata <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_html</span>(URL)</span>
+<span id="cb6-13">  body_nodes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> edata <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-14">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_node</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'body'</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-15">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_children</span>()</span>
+<span id="cb6-16">  </span>
+<span id="cb6-17">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># LOCATION</span></span>
+<span id="cb6-18">  LOCATION <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-19">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"//span[contains(@itemprop, 'location')]"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-20">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>()</span>
+<span id="cb6-21">  </span>
+<span id="cb6-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Organization website</span></span>
+<span id="cb6-23">  WEBSITE <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-24">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"//a[contains(@itemprop, 'url')]"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-25">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> tibble<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">enframe</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-26">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">startsWith</span>(value,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'@'</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-27">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(value) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>()</span>
+<span id="cb6-28">  </span>
+<span id="cb6-29">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Organization Name</span></span>
+<span id="cb6-30">  NAME <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-31">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"//h1[contains(@class, 'h2 lh-condensed')]"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-32">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-33">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gsub</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">s+"</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replacement =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-34">    stringr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_trim</span>()</span>
+<span id="cb6-35">  </span>
+<span id="cb6-36">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Twitter handle</span></span>
+<span id="cb6-37">  TWITTER <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-38">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"//a[contains(@itemprop, 'url')]"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-39">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> tibble<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">enframe</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-40">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">startsWith</span>(value,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'@'</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-41">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(value) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>()</span>
+<span id="cb6-42">  </span>
+<span id="cb6-43">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Metadata vector</span></span>
+<span id="cb6-44">  VEC <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">github=</span>org_names,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name=</span>NAME, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">website=</span>WEBSITE,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">twitter=</span>TWITTER)</span>
+<span id="cb6-45">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(VEC)</span>
+<span id="cb6-46">}</span>
+<span id="cb6-47"></span>
+<span id="cb6-48"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Do call</span></span>
+<span id="cb6-49">rc.metadata <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">do.call</span>(rbind,<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lapply</span>(rc.org, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">FUN=</span>github_scrape))</span>
+<span id="cb6-50"></span>
+<span id="cb6-51"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Load scraped metadata</span></span>
+<span id="cb6-52">meta.df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>(rc.metadata)</span>
+<span id="cb6-53">meta.df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> meta.df[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">order</span>(meta.df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>github),]</span>
+<span id="cb6-54"></span>
+<span id="cb6-55"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add GitHub hyperlinks</span></span>
+<span id="cb6-56">ghURL <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/"</span>, meta.df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>github)</span>
+<span id="cb6-57">meta.df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>github <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;a href='"</span>,ghURL,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"'"</span>,</span>
+<span id="cb6-58">                        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' target=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_blank</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\"</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">&gt;'</span>,</span>
+<span id="cb6-59">                        meta.df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>github,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;/a&gt;"</span>)</span>
+<span id="cb6-60"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Remove NA's</span></span>
+<span id="cb6-61">meta.df[meta.df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"character(0)"</span>] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span></span>
+<span id="cb6-62"></span>
+<span id="cb6-63"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Reorder columns</span></span>
+<span id="cb6-64">meta.df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subset</span>(meta.df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">select=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'github'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'name'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'twitter'</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'website'</span>))</span>
+<span id="cb6-65"></span>
+<span id="cb6-66"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Convert to DT</span></span>
+<span id="cb6-67">meta.dt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> DT<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">datatable</span>(meta.df,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">escape =</span> F,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rownames =</span> F,</span>
+<span id="cb6-68">                         <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pageLength =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>,</span>
+<span id="cb6-69">                                        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">autoWidth =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>,</span>
+<span id="cb6-70">                                        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fixedColumns =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">leftColumns =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)))</span>
+<span id="cb6-71">meta.dt</span></code></pre></div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>tables</category>
+  <guid>https://www.wreillo.com/posts/rc/index.html</guid>
+  <pubDate>Tue, 12 Sep 2023 00:00:00 GMT</pubDate>
+  <media:content url="https://www.wreillo.com/posts/rc/featured.gif" medium="image" type="image/gif"/>
+</item>
+</channel>
+</rss>
