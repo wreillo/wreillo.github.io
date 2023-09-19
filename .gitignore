@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.httr-oauth
+/.quarto/
+_site/
+*.key
+.DS_Store
+.git

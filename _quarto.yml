@@ -1,0 +1,49 @@
+project:
+  type: website
+  resources:
+    - "images/creative-logo.png"
+    
+website: 
+  favicon: images/profile.png
+  title: "Behind the keyboard ⌨️"
+  site-url: https://www.wreillo.com
+  description: "this is a test"
+  
+  repo-url: https://github.com/wreillo/wreillo-dev
+  repo-actions: [edit,issue]
+  
+  open-graph: true
+  twitter-card:
+    creator: "@genobriel"
+    image: "/images/creative-logo.png"
+  
+  navbar: 
+    right:
+      - text: Home
+        href: index.qmd
+      - text: Posts
+        href: posts.qmd
+      - icon: github
+        href: https://github.com/wreillo
+        aria-label: Github profile
+      - icon: twitter
+        href: https://twitter.com/genobriel
+        aria-label: Personal Twitter
+        
+  page-footer: 
+    right: "Powered by curiosity💡"
+    left: |
+      Buy me a coffee
+      [![](https://cdn.buymeacoffee.com/uploads/profile_pictures/2023/09/YIArxNubNJB2zNQ0.png){fig-alt="BMC" width=25px}](https://www.buymeacoffee.com/wreillo)
+
+format:
+  html:
+    theme:
+      light: [litera, styles.scss]
+      dark: [darkly, styles-dark.scss]
+    highlight-style: a11y-dark
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+
+editor: visual

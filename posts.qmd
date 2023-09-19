@@ -1,0 +1,16 @@
+---
+listing:
+  contents: "posts/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  image-placeholder: images/creative-logo.png
+  fields: [image, date, title, description]
+page-layout: full
+title-block-banner: true
+---
+
+An space to explore new ideas, concepts, and share it with others. The website layout is adapted from the *quarto-tip-a-day* github page.
