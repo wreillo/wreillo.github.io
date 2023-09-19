@@ -33,15 +33,14 @@ website:
   page-footer: 
     right: "Powered by curiosity💡"
     left: |
-      Buy me a coffee
-      [![](https://cdn.buymeacoffee.com/uploads/profile_pictures/2023/09/YIArxNubNJB2zNQ0.png){fig-alt="BMC" width=25px}](https://www.buymeacoffee.com/wreillo)
+      [![](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png){fig-alt="BMC" width=125px}](https://www.buymeacoffee.com/wreillo)
 
 format:
   html:
     theme:
       light: [litera, styles.scss]
       dark: [darkly, styles-dark.scss]
-    highlight-style: a11y-dark
+    highlight-style: ayu-dark
     mainfont: "Atkinson Hyperlegible"
     code-copy: true
     code-overflow: wrap
