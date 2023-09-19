@@ -60,8 +60,8 @@ background-color: null;
 font-style: inherit;">"Mi Alma Mater🐺"</span>)</span>
 <span id="cb1-6">m</span></code></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f75631adb8cab41027d1" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f75631adb8cab41027d1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[18.46830726637605,-66.74041348869325,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Mi Alma Mater🐺",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[18.46830726637605,18.46830726637605],"lng":[-66.74041348869325,-66.74041348869325]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-376c584f63c38df50641" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-376c584f63c38df50641">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[18.46830726637605,-66.74041348869325,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Mi Alma Mater🐺",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[18.46830726637605,18.46830726637605],"lng":[-66.74041348869325,-66.74041348869325]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -94,55 +94,39 @@ background-color: null;
 font-style: inherit;">'rlist'</span>)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
 background-color: null;
+font-style: inherit;">suppressMessages</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
 font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'dplyr'</span>,<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">quietly =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+font-style: inherit;">'dplyr'</span>))</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rvest'</span>)</span>
-<span id="cb5-2"><span class="fu" style="color: #4758AB;
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'xml2'</span>)</span>
-<span id="cb5-3"><span class="fu" style="color: #4758AB;
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'DT'</span>)</span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="do" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="do" style="color: #5E5E5E;
 background-color: null;
 font-style: italic;">## Search Research Computing organizations</span></span>
-<span id="cb6-2">rc.org <span class="ot" style="color: #003B4F;
+<span id="cb2-2">rc.org <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://api.github.com/search/users?q=research+computing+in:name+type:org&amp;type=Users&amp;per_page=100&amp;page=%d"</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sprintf</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -167,7 +151,7 @@ background-color: null;
 font-style: inherit;">3</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-4">  .[<span class="fu" style="color: #4758AB;
+<span id="cb2-4">  .[<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">names</span>(.) <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -176,85 +160,85 @@ background-color: null;
 font-style: inherit;">'login'</span>] <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> as.character</span>
-<span id="cb6-5"></span>
-<span id="cb6-6"><span class="co" style="color: #5E5E5E;
+<span id="cb2-5"></span>
+<span id="cb2-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Scrape Function</span></span>
-<span id="cb6-7"><span class="co" style="color: #5E5E5E;
+<span id="cb2-7"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#   The resulted on n=130 "Research Computing" organizations. </span></span>
-<span id="cb6-8"><span class="co" style="color: #5E5E5E;
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#   To waive the GH API rate limit, github_scrape(...) was used</span></span>
-<span id="cb6-9">github_scrape <span class="ot" style="color: #003B4F;
+<span id="cb2-9">github_scrape <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">function</span>(org_names){</span>
-<span id="cb6-10"></span>
-<span id="cb6-11">  URL <span class="ot" style="color: #003B4F;
+<span id="cb2-10"></span>
+<span id="cb2-11">  URL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://github.com/"</span>, org_names)</span>
-<span id="cb6-12">  edata <span class="ot" style="color: #003B4F;
+<span id="cb2-12">  edata <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">read_html</span>(URL)</span>
-<span id="cb6-13">  body_nodes <span class="ot" style="color: #003B4F;
+<span id="cb2-13">  body_nodes <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> edata <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-14">    <span class="fu" style="color: #4758AB;
+<span id="cb2-14">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_node</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'body'</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-15">    <span class="fu" style="color: #4758AB;
+<span id="cb2-15">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_children</span>()</span>
-<span id="cb6-16">  </span>
-<span id="cb6-17">  <span class="co" style="color: #5E5E5E;
+<span id="cb2-16">  </span>
+<span id="cb2-17">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># LOCATION</span></span>
-<span id="cb6-18">  LOCATION <span class="ot" style="color: #003B4F;
+<span id="cb2-18">  LOCATION <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-19">    <span class="fu" style="color: #4758AB;
+<span id="cb2-19">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"//span[contains(@itemprop, 'location')]"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-20">    <span class="fu" style="color: #4758AB;
+<span id="cb2-20">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_text</span>()</span>
-<span id="cb6-21">  </span>
-<span id="cb6-22">  <span class="co" style="color: #5E5E5E;
+<span id="cb2-21">  </span>
+<span id="cb2-22">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Organization website</span></span>
-<span id="cb6-23">  WEBSITE <span class="ot" style="color: #003B4F;
+<span id="cb2-23">  WEBSITE <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-24">    <span class="fu" style="color: #4758AB;
+<span id="cb2-24">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"//a[contains(@itemprop, 'url')]"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-25">    <span class="fu" style="color: #4758AB;
+<span id="cb2-25">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -265,7 +249,7 @@ background-color: null;
 font-style: inherit;">enframe</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-26">    <span class="fu" style="color: #4758AB;
+<span id="cb2-26">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -276,35 +260,35 @@ background-color: null;
 font-style: inherit;">'@'</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-27">    <span class="fu" style="color: #4758AB;
+<span id="cb2-27">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(value) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.character</span>()</span>
-<span id="cb6-28">  </span>
-<span id="cb6-29">  <span class="co" style="color: #5E5E5E;
+<span id="cb2-28">  </span>
+<span id="cb2-29">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Organization Name</span></span>
-<span id="cb6-30">  NAME <span class="ot" style="color: #003B4F;
+<span id="cb2-30">  NAME <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-31">    <span class="fu" style="color: #4758AB;
+<span id="cb2-31">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"//h1[contains(@class, 'h2 lh-condensed')]"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-32">    <span class="fu" style="color: #4758AB;
+<span id="cb2-32">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-33">    <span class="fu" style="color: #4758AB;
+<span id="cb2-33">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">gsub</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -321,28 +305,28 @@ background-color: null;
 font-style: inherit;">" "</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-34">    stringr<span class="sc" style="color: #5E5E5E;
+<span id="cb2-34">    stringr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">str_trim</span>()</span>
-<span id="cb6-35">  </span>
-<span id="cb6-36">  <span class="co" style="color: #5E5E5E;
+<span id="cb2-35">  </span>
+<span id="cb2-36">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Twitter handle</span></span>
-<span id="cb6-37">  TWITTER <span class="ot" style="color: #003B4F;
+<span id="cb2-37">  TWITTER <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> body_nodes <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-38">    <span class="fu" style="color: #4758AB;
+<span id="cb2-38">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">xml_find_all</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"//a[contains(@itemprop, 'url')]"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-39">    <span class="fu" style="color: #4758AB;
+<span id="cb2-39">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">html_text</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -353,7 +337,7 @@ background-color: null;
 font-style: inherit;">enframe</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-40">    <span class="fu" style="color: #4758AB;
+<span id="cb2-40">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -362,18 +346,18 @@ background-color: null;
 font-style: inherit;">'@'</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-41">    <span class="fu" style="color: #4758AB;
+<span id="cb2-41">    <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(value) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.character</span>()</span>
-<span id="cb6-42">  </span>
-<span id="cb6-43">  <span class="co" style="color: #5E5E5E;
+<span id="cb2-42">  </span>
+<span id="cb2-43">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Metadata vector</span></span>
-<span id="cb6-44">  VEC <span class="ot" style="color: #003B4F;
+<span id="cb2-44">  VEC <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -386,15 +370,15 @@ background-color: null;
 font-style: inherit;">website=</span>WEBSITE,<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">twitter=</span>TWITTER)</span>
-<span id="cb6-45">  <span class="fu" style="color: #4758AB;
+<span id="cb2-45">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">return</span>(VEC)</span>
-<span id="cb6-46">}</span>
-<span id="cb6-47"></span>
-<span id="cb6-48"><span class="co" style="color: #5E5E5E;
+<span id="cb2-46">}</span>
+<span id="cb2-47"></span>
+<span id="cb2-48"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Do call</span></span>
-<span id="cb6-49">rc.metadata <span class="ot" style="color: #003B4F;
+<span id="cb2-49">rc.metadata <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -403,27 +387,27 @@ background-color: null;
 font-style: inherit;">lapply</span>(rc.org, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">FUN=</span>github_scrape))</span>
-<span id="cb6-50"></span>
-<span id="cb6-51"><span class="co" style="color: #5E5E5E;
+<span id="cb2-50"></span>
+<span id="cb2-51"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load scraped metadata</span></span>
-<span id="cb6-52">meta.df <span class="ot" style="color: #003B4F;
+<span id="cb2-52">meta.df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">as.data.frame</span>(rc.metadata)</span>
-<span id="cb6-53">meta.df <span class="ot" style="color: #003B4F;
+<span id="cb2-53">meta.df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> meta.df[<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">order</span>(meta.df<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>github),]</span>
-<span id="cb6-54"></span>
-<span id="cb6-55"><span class="co" style="color: #5E5E5E;
+<span id="cb2-54"></span>
+<span id="cb2-55"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Add GitHub hyperlinks</span></span>
-<span id="cb6-56">ghURL <span class="ot" style="color: #003B4F;
+<span id="cb2-56">ghURL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -432,7 +416,7 @@ background-color: null;
 font-style: inherit;">"https://github.com/"</span>, meta.df<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>github)</span>
-<span id="cb6-57">meta.df<span class="sc" style="color: #5E5E5E;
+<span id="cb2-57">meta.df<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>github <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -443,7 +427,7 @@ background-color: null;
 font-style: inherit;">"&lt;a href='"</span>,ghURL,<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"'"</span>,</span>
-<span id="cb6-58">                        <span class="st" style="color: #20794D;
+<span id="cb2-58">                        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">' target=</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -454,15 +438,15 @@ background-color: null;
 font-style: inherit;">\"</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">&gt;'</span>,</span>
-<span id="cb6-59">                        meta.df<span class="sc" style="color: #5E5E5E;
+<span id="cb2-59">                        meta.df<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>github,<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"&lt;/a&gt;"</span>)</span>
-<span id="cb6-60"><span class="co" style="color: #5E5E5E;
+<span id="cb2-60"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Remove NA's</span></span>
-<span id="cb6-61">meta.df[meta.df <span class="sc" style="color: #5E5E5E;
+<span id="cb2-61">meta.df[meta.df <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -471,11 +455,11 @@ background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NA</span></span>
-<span id="cb6-62"></span>
-<span id="cb6-63"><span class="co" style="color: #5E5E5E;
+<span id="cb2-62"></span>
+<span id="cb2-63"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Reorder columns</span></span>
-<span id="cb6-64">meta.df <span class="ot" style="color: #003B4F;
+<span id="cb2-64">meta.df <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -492,11 +476,11 @@ background-color: null;
 font-style: inherit;">'twitter'</span>,<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'website'</span>))</span>
-<span id="cb6-65"></span>
-<span id="cb6-66"><span class="co" style="color: #5E5E5E;
+<span id="cb2-65"></span>
+<span id="cb2-66"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Convert to DT</span></span>
-<span id="cb6-67">meta.dt <span class="ot" style="color: #003B4F;
+<span id="cb2-67">meta.dt <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> DT<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -507,7 +491,7 @@ background-color: null;
 font-style: inherit;">escape =</span> F,<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">rownames =</span> F,</span>
-<span id="cb6-68">                         <span class="at" style="color: #657422;
+<span id="cb2-68">                         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -516,12 +500,12 @@ background-color: null;
 font-style: inherit;">pageLength =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span>,</span>
-<span id="cb6-69">                                        <span class="at" style="color: #657422;
+<span id="cb2-69">                                        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">autoWidth =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>,</span>
-<span id="cb6-70">                                        <span class="at" style="color: #657422;
+<span id="cb2-70">                                        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fixedColumns =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -530,7 +514,12 @@ background-color: null;
 font-style: inherit;">leftColumns =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>)))</span>
-<span id="cb6-71">meta.dt</span></code></pre></div>
+<span id="cb2-71">meta.dt</span></code></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ac271348fdf0962322e0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ac271348fdf0962322e0">{"x":{"filter":"none","vertical":false,"data":[["<a href='https://github.com/AAU-Edge-Computing-and-Networking' target=\"_blank\">AAU-Edge-Computing-and-Networking<\/a>","<a href='https://github.com/ACRC' target=\"_blank\">ACRC<\/a>","<a href='https://github.com/ACRIG' target=\"_blank\">ACRIG<\/a>","<a href='https://github.com/acrlabs' target=\"_blank\">acrlabs<\/a>","<a href='https://github.com/AdvancedResearchComputing' target=\"_blank\">AdvancedResearchComputing<\/a>","<a href='https://github.com/aicer' target=\"_blank\">aicer<\/a>","<a href='https://github.com/ANU-HPC' target=\"_blank\">ANU-HPC<\/a>","<a href='https://github.com/ARCCA' target=\"_blank\">ARCCA<\/a>","<a href='https://github.com/arcs-njit-edu' target=\"_blank\">arcs-njit-edu<\/a>","<a href='https://github.com/arctic-gsu' target=\"_blank\">arctic-gsu<\/a>","<a href='https://github.com/arizona-tri-u-research-computing' target=\"_blank\">arizona-tri-u-research-computing<\/a>","<a href='https://github.com/artshumrc' target=\"_blank\">artshumrc<\/a>","<a href='https://github.com/asgard-lab' target=\"_blank\">asgard-lab<\/a>","<a href='https://github.com/auburn-hpc' target=\"_blank\">auburn-hpc<\/a>","<a href='https://github.com/BCH-RC' target=\"_blank\">BCH-RC<\/a>","<a href='https://github.com/BioComputing' target=\"_blank\">BioComputing<\/a>","<a href='https://github.com/BJTUHPCRT' target=\"_blank\">BJTUHPCRT<\/a>","<a href='https://github.com/BRCBerkeley' target=\"_blank\">BRCBerkeley<\/a>","<a href='https://github.com/bsurc' target=\"_blank\">bsurc<\/a>","<a href='https://github.com/BTH-CEd' target=\"_blank\">BTH-CEd<\/a>","<a href='https://github.com/bu-rcs' target=\"_blank\">bu-rcs<\/a>","<a href='https://github.com/bucorel' target=\"_blank\">bucorel<\/a>","<a href='https://github.com/BVCRG' target=\"_blank\">BVCRG<\/a>","<a href='https://github.com/BW-ICRL' target=\"_blank\">BW-ICRL<\/a>","<a href='https://github.com/BYUHPC' target=\"_blank\">BYUHPC<\/a>","<a href='https://github.com/CAEN-Research-Computing' target=\"_blank\">CAEN-Research-Computing<\/a>","<a href='https://github.com/CaRCC' target=\"_blank\">CaRCC<\/a>","<a href='https://github.com/CaRCC-RCD' target=\"_blank\">CaRCC-RCD<\/a>","<a href='https://github.com/carllabs' target=\"_blank\">carllabs<\/a>","<a href='https://github.com/CCBRC-of-Hainan-Normal-University' target=\"_blank\">CCBRC-of-Hainan-Normal-University<\/a>","<a href='https://github.com/cedr-bits-goa' target=\"_blank\">cedr-bits-goa<\/a>","<a href='https://github.com/CenterForDigitalHumanities' target=\"_blank\">CenterForDigitalHumanities<\/a>","<a href='https://github.com/cer-uga' target=\"_blank\">cer-uga<\/a>","<a href='https://github.com/cla-rce' target=\"_blank\">cla-rce<\/a>","<a href='https://github.com/clemsonciti' target=\"_blank\">clemsonciti<\/a>","<a href='https://github.com/cloudmaven' target=\"_blank\">cloudmaven<\/a>","<a href='https://github.com/CognitiveComputingResearchGroup' target=\"_blank\">CognitiveComputingResearchGroup<\/a>","<a href='https://github.com/ColumbiaSWC' target=\"_blank\">ColumbiaSWC<\/a>","<a href='https://github.com/crcresearch' target=\"_blank\">crcresearch<\/a>","<a href='https://github.com/CSCAR' target=\"_blank\">CSCAR<\/a>","<a href='https://github.com/custom-computing-ic' target=\"_blank\">custom-computing-ic<\/a>","<a href='https://github.com/daqcri' target=\"_blank\">daqcri<\/a>","<a href='https://github.com/DeepLearnXMU' target=\"_blank\">DeepLearnXMU<\/a>","<a href='https://github.com/dscLabJNU' target=\"_blank\">dscLabJNU<\/a>","<a href='https://github.com/DurhamARC' target=\"_blank\">DurhamARC<\/a>","<a href='https://github.com/ecrc' target=\"_blank\">ecrc<\/a>","<a href='https://github.com/ecrcbooks' target=\"_blank\">ecrcbooks<\/a>","<a href='https://github.com/ecrcpapers' target=\"_blank\">ecrcpapers<\/a>","<a href='https://github.com/ecrcposters' target=\"_blank\">ecrcposters<\/a>","<a href='https://github.com/ecrcpresentations' target=\"_blank\">ecrcpresentations<\/a>","<a href='https://github.com/ecrcproposals' target=\"_blank\">ecrcproposals<\/a>","<a href='https://github.com/ecrcthesis' target=\"_blank\">ecrcthesis<\/a>","<a href='https://github.com/fasrc' target=\"_blank\">fasrc<\/a>","<a href='https://github.com/fcrlab-unime' target=\"_blank\">fcrlab-unime<\/a>","<a href='https://github.com/FhA-VC' target=\"_blank\">FhA-VC<\/a>","<a href='https://github.com/fr-cc' target=\"_blank\">fr-cc<\/a>","<a href='https://github.com/fsurcc' target=\"_blank\">fsurcc<\/a>","<a href='https://github.com/FU-CERG' target=\"_blank\">FU-CERG<\/a>","<a href='https://github.com/gmit-computing' target=\"_blank\">gmit-computing<\/a>","<a href='https://github.com/gsbdarc' target=\"_blank\">gsbdarc<\/a>","<a href='https://github.com/gsbrc' target=\"_blank\">gsbrc<\/a>","<a href='https://github.com/HarvardRC' target=\"_blank\">HarvardRC<\/a>","<a href='https://github.com/hbs-rcs' target=\"_blank\">hbs-rcs<\/a>","<a href='https://github.com/HiPerCoRe' target=\"_blank\">HiPerCoRe<\/a>","<a href='https://github.com/hmsrc' target=\"_blank\">hmsrc<\/a>","<a href='https://github.com/HPCC-Cloud-Computing' target=\"_blank\">HPCC-Cloud-Computing<\/a>","<a href='https://github.com/hsci-r' target=\"_blank\">hsci-r<\/a>","<a href='https://github.com/icanlab' target=\"_blank\">icanlab<\/a>","<a href='https://github.com/ICCRO' target=\"_blank\">ICCRO<\/a>","<a href='https://github.com/ipencnensp' target=\"_blank\">ipencnensp<\/a>","<a href='https://github.com/kaust-rc' target=\"_blank\">kaust-rc<\/a>","<a href='https://github.com/kaust-rccl' target=\"_blank\">kaust-rccl<\/a>","<a href='https://github.com/larcc-group' target=\"_blank\">larcc-group<\/a>","<a href='https://github.com/LuCEresearchlab' target=\"_blank\">LuCEresearchlab<\/a>","<a href='https://github.com/MARN-5895' target=\"_blank\">MARN-5895<\/a>","<a href='https://github.com/mcw-rcc' target=\"_blank\">mcw-rcc<\/a>","<a href='https://github.com/mlvccn' target=\"_blank\">mlvccn<\/a>","<a href='https://github.com/MSRCCS' target=\"_blank\">MSRCCS<\/a>","<a href='https://github.com/NERSC' target=\"_blank\">NERSC<\/a>","<a href='https://github.com/northeastern-rc' target=\"_blank\">northeastern-rc<\/a>","<a href='https://github.com/ntubci' target=\"_blank\">ntubci<\/a>","<a href='https://github.com/nuitrcs' target=\"_blank\">nuitrcs<\/a>","<a href='https://github.com/NYUAD-CRC' target=\"_blank\">NYUAD-CRC<\/a>","<a href='https://github.com/odu-rcs' target=\"_blank\">odu-rcs<\/a>","<a href='https://github.com/PEARC-ACM' target=\"_blank\">PEARC-ACM<\/a>","<a href='https://github.com/penncrcu' target=\"_blank\">penncrcu<\/a>","<a href='https://github.com/phs-rcg' target=\"_blank\">phs-rcg<\/a>","<a href='https://github.com/pitt-crc' target=\"_blank\">pitt-crc<\/a>","<a href='https://github.com/PracticumAI' target=\"_blank\">PracticumAI<\/a>","<a href='https://github.com/PSU-Research-Computing' target=\"_blank\">PSU-Research-Computing<\/a>","<a href='https://github.com/RCC-MRU' target=\"_blank\">RCC-MRU<\/a>","<a href='https://github.com/rcc-uchicago' target=\"_blank\">rcc-uchicago<\/a>","<a href='https://github.com/RCEatPitt' target=\"_blank\">RCEatPitt<\/a>","<a href='https://github.com/ResearchComputing' target=\"_blank\">ResearchComputing<\/a>","<a href='https://github.com/researchcomputingteams' target=\"_blank\">researchcomputingteams<\/a>","<a href='https://github.com/RGNC' target=\"_blank\">RGNC<\/a>","<a href='https://github.com/ricct' target=\"_blank\">ricct<\/a>","<a href='https://github.com/rice-crc' target=\"_blank\">rice-crc<\/a>","<a href='https://github.com/RIT-RC' target=\"_blank\">RIT-RC<\/a>","<a href='https://github.com/RSC-RP' target=\"_blank\">RSC-RP<\/a>","<a href='https://github.com/rutgers-oarc' target=\"_blank\">rutgers-oarc<\/a>","<a href='https://github.com/scientificcomputing' target=\"_blank\">scientificcomputing<\/a>","<a href='https://github.com/scientificomputing' target=\"_blank\">scientificomputing<\/a>","<a href='https://github.com/SemanticComputing' target=\"_blank\">SemanticComputing<\/a>","<a href='https://github.com/sfu-rcg' target=\"_blank\">sfu-rcg<\/a>","<a href='https://github.com/simulahpc' target=\"_blank\">simulahpc<\/a>","<a href='https://github.com/SOS-CER' target=\"_blank\">SOS-CER<\/a>","<a href='https://github.com/SSCRIndia' target=\"_blank\">SSCRIndia<\/a>","<a href='https://github.com/stanford-rc' target=\"_blank\">stanford-rc<\/a>","<a href='https://github.com/StAResComp' target=\"_blank\">StAResComp<\/a>","<a href='https://github.com/STFC-ICD-Research-and-Design' target=\"_blank\">STFC-ICD-Research-and-Design<\/a>","<a href='https://github.com/sustainable-computing' target=\"_blank\">sustainable-computing<\/a>","<a href='https://github.com/UA-ResearchComputing-HPC' target=\"_blank\">UA-ResearchComputing-HPC<\/a>","<a href='https://github.com/uabrc' target=\"_blank\">uabrc<\/a>","<a href='https://github.com/UAF-RCS' target=\"_blank\">UAF-RCS<\/a>","<a href='https://github.com/ualberta-rcg' target=\"_blank\">ualberta-rcg<\/a>","<a href='https://github.com/UBC-Advanced-Research-Computing' target=\"_blank\">UBC-Advanced-Research-Computing<\/a>","<a href='https://github.com/ucf-arcc' target=\"_blank\">ucf-arcc<\/a>","<a href='https://github.com/UCL-ARC' target=\"_blank\">UCL-ARC<\/a>","<a href='https://github.com/UCL-ARC-research-computing-with-cpp' target=\"_blank\">UCL-ARC-research-computing-with-cpp<\/a>","<a href='https://github.com/UCR-Research-Computing' target=\"_blank\">UCR-Research-Computing<\/a>","<a href='https://github.com/UCSC-LTRL' target=\"_blank\">UCSC-LTRL<\/a>","<a href='https://github.com/ucsc-srg' target=\"_blank\">ucsc-srg<\/a>","<a href='https://github.com/ucsd-rcd' target=\"_blank\">ucsd-rcd<\/a>","<a href='https://github.com/UFResearchComputing' target=\"_blank\">UFResearchComputing<\/a>","<a href='https://github.com/UMass-RC' target=\"_blank\">UMass-RC<\/a>","<a href='https://github.com/umich-arc' target=\"_blank\">umich-arc<\/a>","<a href='https://github.com/unict-cclab' target=\"_blank\">unict-cclab<\/a>","<a href='https://github.com/UNM-CARC' target=\"_blank\">UNM-CARC<\/a>","<a href='https://github.com/uog-rcaas' target=\"_blank\">uog-rcaas<\/a>","<a href='https://github.com/UQ-RCC' target=\"_blank\">UQ-RCC<\/a>","<a href='https://github.com/URCF' target=\"_blank\">URCF<\/a>","<a href='https://github.com/usc-cloud' target=\"_blank\">usc-cloud<\/a>","<a href='https://github.com/usc-rc' target=\"_blank\">usc-rc<\/a>","<a href='https://github.com/uschpc' target=\"_blank\">uschpc<\/a>","<a href='https://github.com/USDRCG' target=\"_blank\">USDRCG<\/a>","<a href='https://github.com/utsa-rcsg' target=\"_blank\">utsa-rcsg<\/a>","<a href='https://github.com/uvarc' target=\"_blank\">uvarc<\/a>","<a href='https://github.com/uvasomrc' target=\"_blank\">uvasomrc<\/a>","<a href='https://github.com/UWrc' target=\"_blank\">UWrc<\/a>","<a href='https://github.com/vuw-research-computing' target=\"_blank\">vuw-research-computing<\/a>","<a href='https://github.com/WestDRI' target=\"_blank\">WestDRI<\/a>","<a href='https://github.com/WVUHPC' target=\"_blank\">WVUHPC<\/a>","<a href='https://github.com/WVUResearchComputing' target=\"_blank\">WVUResearchComputing<\/a>","<a href='https://github.com/WyoARCC' target=\"_blank\">WyoARCC<\/a>","<a href='https://github.com/WyoARCC-Research' target=\"_blank\">WyoARCC-Research<\/a>","<a href='https://github.com/ycrc' target=\"_blank\">ycrc<\/a>"],["AAU - Edge Computing and Networking Research Group","Advanced Computing Research Centre","Affective Computing Research Interest Group - Universitas Brawijaya","Applied Computing Research Labs","AdvancedResearchComputing","American Institute for Computing Education and Research Inc","Australian National University School of Computing - High Performance Computing Research","Advanced Research Computing @ Cardiff University","NJIT Advanced Research Computing Services","Advanced Research Computing Technology and Innovation Core","Arizona Tri-University Research Computing","Harvard University Arts & Humanities Research Computing (DARTH)","Above the Cloud Computing Research Lab","Auburn University High Performance and Research Computing","Boston Children's Hospital Research Computing","Bio Computing Facility, Arizona Research Labs, University of Arizona","High Performance Computing Research Team of Beijing Jiaotong University","Berkeley Research Computing (BRC)","Boise State Research Computing","BTH Computing Education Research Lab","Boston University Research Computing","Business Computing Research Laboratory","Biometrics and Visual Computing Research Group（BVCRG）","Interdisciplinary Computing Research Lab@Baldwin Wallace","BYU Office of Research Computing","CAEN Research Computing","Campus Research Computing Consortium","Campus Research Computing Consortium","Computing Analytics & Research Lab","Cloud Computing and Bigdata Research Center of Hainan Normal University","Computing Education Research Group at BITS Pilani Goa","Research Computing Group","UGA Computing Education Research Group","University of Minnesota - College of Liberal Arts Research Computing and Engineering","Clemson Research Computing & Data (RCD)","research computing","Cognitive Computing Research Group","Foundations for Research Computing","Center for Research Computing","Consulting for Statistics, Computing & Analytics Research (CSCAR)","Imperial College London Custom Computing Research Group","Data Analytics - Qatar Computing Research Institute, HBKU","Language Data Knowledge Computing Research Group in Xiamen University","Data Management and Cloud Computing Research Lab.","Durham University Advanced Research Computing","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Harvard University Faculty of Arts & Sciences Research Computing","Future Computing Research Laboratory","Fraunhofer Austria Research GmbH - Visual Computing Graz","University of Freiburg Research Computing Center","FSU Research Computing Center","Computing Education Research Group @ FU Berlin","Computing and Data Science Research Group","Stanford GSB -- Data, Analytics, and Research Computing (DARC)","Research Computing at Stanford Graduate School of Business","Harvard Research Computing","Research Computing Services","High Performance Computing Research Group","HMS Research Computing","HUST HPCC Cloud Computing, IoT research group","Human Sciences – Computing Interaction Research Group","iCAN (Innovative Computing and Autonomous Networking) Research Group @ Southeast University","Indian Cognitive Computing Research Organization","Scientific Computing and e-Science Research Group at IPEN-CNEN/SP","KAUST Research Computing","KAUST Research Computing Core Labs","Laboratory of Advanced Research on Cloud Computing - LARCC","Luce - Lugano Computing Education Research Lab","Research Computing in Marine Sciences","MCW Research Computing Center","Machine Learning and Vision Computing (MLVC) Research Group","Microsoft Research: Cloud Computing and Storage","National Energy Research Scientific Computing Center (NERSC)","Northeastern University Research Computing","NTU Brain-Computing Research","Northwestern IT Research Computing and Data Services","Center for Research Computing (NYU Abu Dhabi)","Old Dominion University Research Computing Services","PRACTICE & EXPERIENCE IN ADVANCED RESEARCH COMPUTING","Clinical Research Computing Unit","UChicago Public Health Sciences Research Computing Group","Center for Research Computing","UF Research Computing Practicum AI Program","PSU-Research-Computing","Research Cluster of Computing","University of Chicago Research Computing Center","Research Computing Education @ Pitt","CU Boulder Research Computing","Research Computing Teams","Research Group on Natural Computing","Research Institute of Cloud Computing Technology","Rice University Center for Research Computing","RIT - Research Computing","Research Scientific Computing","Office of Advanced Research Computing","Scientific Computing at Simula Research Laboratory","Scientific Computing Research Unit","Semantic Computing Research Group (SeCo)","Simon Fraser University - Research Computing Group","High Performance Computing at Simula Research Laboratory","Science of Software - Computing Education Research","School of Statistical Computing and Research","Stanford Research Computing Center (SRCC)","University of St Andrews Research Computing","STFC ISIS Computing Research and Design","UofA Sustainable Computing Research Group","UA Research Computing","UAB IT Research Computing","UAF GI Research Computing Systems","University of Alberta Research Computing Group","UBC Advanced Research Computing","UCF Advanced Research Computing Center","UCL Advanced Research Computing Centre","UCL-ARC Research Computing with C++","UCR Research Computing","Language Technology Research Laboratory, University of Colombo School of Computing","Systems Research Group - University of Colombo School of Computing","UCSD Research Computing & Data Community","UF Research Computing","UMass Amherst Research Computing","Advanced Research Computing","Cloud Computing Lab research group","UNM Center for Advanced Research Computing","University of Glasgow - Research Computing as a Service","Research Computing Centre","University Research Computing Facility","USC Cloud Computing Research","Research Computing @ USC","USC Center for Advanced Research Computing","USD Research Computing Group","UTSA - Research Computing Support Group","University of Virginia | Research Computing","UVA Research Computing","U. of Washington Research Computing","VUW Research Computing","Training in Research Computing","WVU Research Computing","WVU ITS - Research Computing","University of Wyoming Advanced Research Computing Center (ARCC)","Research Computing at UW ARCC","Yale Center for Research Computing"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,"https://www.bristol.ac.uk/acrc/",null,"https://appliedcomputing.io","http://arc.vt.edu",null,"https://comp.anu.edu.au/research/computational-science/","http://www.cardiff.ac.uk/arcca/",null,"https://arctic.gsu.edu",null,"https://digitalhumanities.fas.harvard.edu/","http://asgard.dc.ufscar.br",null,null,"http://bcf.arl.arizona.edu",null,"http://research-it.berkeley.edu/brc","https://rcs.boisestate.edu",null,"http://www.bu.edu/tech/support/research/","http://www.bucorel.com","https://academia.caiyong.wang/Research",null,"https://rc.byu.edu",null,null,"http://carcc.org","http://cbkinfotech.in","http://www.hnsoftware.cn/","https://www.researchgate.net/lab/CEdR-Group-Swaroop-Joshi",null,null,"http://latis.umn.edu/","https://ccit.clemson.edu/research","http://cloudmaven.org","http://ccrg.cs.memphis.edu/","https://rcfoundations.research.columbia.edu/","https://crc.nd.edu","http://cscar.research.umich.edu/","http://cc.doc.ic.ac.uk/","http://da.qcri.org",null,null,"https://www.dur.ac.uk/arc/","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://www.rc.fas.harvard.edu/","https://fcrlab.unime.it","https://www.fraunhofer.at/",null,"https://rcc.fsu.edu","http://cerg.mi.fu-berlin.de","http://gmit-computing.github.io/","https://darc.stanford.edu",null,null,"https://www.hbs.edu/rcs/","https://www.cerit-sc.cz/?lang=en","https://rc.hms.harvard.edu",null,"http://heldig.fi/hsci/",null,null,null,"http://kaust-rc.github.io","http://hpc.kaust.edu.sa","https://larcc.setrem.com.br","https://luce.inf.usi.ch",null,null,null,"http://research.microsoft.com/en-us/UM/redmond/groups/ccs/","http://www.nersc.gov","https://rc.northeastern.edu","https://personal.ntu.edu.sg/ctguan/","https://www.it.northwestern.edu/departments/it-services-support/research/",null,null,null,"http://www.cceb.med.upenn.edu/crcu",null,"https://crc.pitt.edu/","http://practicumai.org",null,"https://www.linkedin.com/company/rcc-mru/",null,null,"https://www.colorado.edu/rc",null,"http://www.gcn.us.es/","https://www.ricct.com","https://researchcomputing.rice.edu","http://www.rc.rit.edu","https://www.seattlechildrens.org/research/centers-programs/","https://oarc.rutgers.edu",null,"http://www.scientificomputing.uct.ac.za/","https://seco.cs.aalto.fi","http://rcg.sfu.ca","https://www.simula.no/research/projects/department-high-performance-computing",null,"http://www.sscrindia.org","https://srcc.stanford.edu","http://www.st-andrews.ac.uk/libraryblog/research-computing/",null,"http://webdocs.cs.ualberta.ca/~oardakan/",null,"https://uabrc.github.io","http://rcs.alaska.edu/",null,"https://arc.ubc.ca","https://arcc.ist.ucf.edu","https://www.ucl.ac.uk/arc","https://github-pages.ucl.ac.uk/research-computing-with-cpp/","https://its.ucr.edu/research-computing","https://ucsc.cmb.ac.lk/language-technology-research-laboratory/",null,"https://research-it.ucsd.edu","https://www.rc.ufl.edu",null,"http://arc.umich.edu/",null,"http://carc.unm.edu",null,"https://rcc.uq.edu.au/","https://drexel.edu/research/resources/urcf/","http://ganges.usc.edu/wiki/Cloud_Computing","https://usc-rc.github.io/","https://www.carc.usc.edu/","http://rcg.usd.edu","https://www.utsa.edu/techsolutions/ResearchSupport/","http://rc.virginia.edu/","http://rc.virginia.edu/","https://hyak.uw.edu",null,"https://training.westdri.ca/","https://it.wvu.edu/research/research-computing","https://hpc.wvu.edu","https://arcc.uwyo.edu","https://arcc-collab.atlassian.net/wiki/spaces/SSP/overview","http://research.computing.yale.edu"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>github<\/th>\n      <th>name<\/th>\n      <th>twitter<\/th>\n      <th>website<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"autoWidth":true,"fixedColumns":{"leftColumns":0},"columnDefs":[],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 
 
