@@ -3,10 +3,12 @@ title: "OpenStreetMap on R + Quarto"
 date: "2023-09-16"
 categories: [maps]
 image: "featured.png"
-image-alt: "Something to try"
+image-alt: "Pin of my college"
 ---
 
-## Mi alma mater
+## Leaflet Widget
+
+Create a map widget using the leaflet package on R
 
 ```{r}
 library(leaflet)
@@ -14,5 +16,9 @@ library(leaflet)
 m <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=-66.74041348869325, lat=18.468307266376055, popup="Mi Alma Mater🐺")
+```
+
+## Mi alma mater
+```{r, echo=FALSE}
 m
 ```

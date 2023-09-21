@@ -9,7 +9,7 @@ website:
   site-url: https://www.wreillo.com
   description: "this is a test"
   
-  repo-url: https://github.com/wreillo/wreillo-dev
+  repo-url: https://github.com/wreillo/wreillo.github.io
   repo-actions: [edit,issue]
   
   open-graph: true
