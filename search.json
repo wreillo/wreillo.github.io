@@ -32,13 +32,20 @@
     "href": "posts/leaflet/index.html",
     "title": "OpenStreetMap on R + Quarto",
     "section": "",
-    "text": "library(leaflet)\n\nm &lt;- leaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-66.74041348869325, lat=18.468307266376055, popup=\"Mi Alma Mater🐺\")\nm"
+    "text": "Create a map widget using the leaflet package on R\n\nlibrary(leaflet)\n\nm &lt;- leaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-66.74041348869325, lat=18.468307266376055, popup=\"Mi Alma Mater🐺\")"
+  },
+  {
+    "objectID": "posts/leaflet/index.html#leaflet-widget",
+    "href": "posts/leaflet/index.html#leaflet-widget",
+    "title": "OpenStreetMap on R + Quarto",
+    "section": "",
+    "text": "Create a map widget using the leaflet package on R\n\nlibrary(leaflet)\n\nm &lt;- leaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-66.74041348869325, lat=18.468307266376055, popup=\"Mi Alma Mater🐺\")"
   },
   {
     "objectID": "posts/leaflet/index.html#mi-alma-mater",
     "href": "posts/leaflet/index.html#mi-alma-mater",
     "title": "OpenStreetMap on R + Quarto",
-    "section": "",
-    "text": "library(leaflet)\n\nm &lt;- leaflet() %&gt;%\n  addTiles() %&gt;%  # Add default OpenStreetMap map tiles\n  addMarkers(lng=-66.74041348869325, lat=18.468307266376055, popup=\"Mi Alma Mater🐺\")\nm"
+    "section": "Mi alma mater",
+    "text": "Mi alma mater"
   }
 ]

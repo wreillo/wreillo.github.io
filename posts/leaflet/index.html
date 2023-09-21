@@ -110,12 +110,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="Behind the keyboard ⌨️ - OpenStreetMap on R + Quarto">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://www.wreillo.com/posts/leaflet/featured.png">
 <meta property="og:site-name" content="Behind the keyboard ⌨️">
 <meta property="og:image:height" content="468">
 <meta property="og:image:width" content="800">
 <meta property="og:image:alt" content="Pin of my college">
 <meta name="twitter:title" content="Behind the keyboard ⌨️ - OpenStreetMap on R + Quarto">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://www.wreillo.com/images/creative-logo.png">
 <meta name="twitter:creator" content="@genobriel">
 <meta name="twitter:image-height" content="765">
@@ -207,7 +209,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mi-alma-mater" id="toc-mi-alma-mater" class="nav-link active" data-scroll-target="#mi-alma-mater">Mi alma mater</a></li>
+  <li><a href="#leaflet-widget" id="toc-leaflet-widget" class="nav-link active" data-scroll-target="#leaflet-widget">Leaflet Widget</a></li>
+  <li><a href="#mi-alma-mater" id="toc-mi-alma-mater" class="nav-link" data-scroll-target="#mi-alma-mater">Mi alma mater</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/leaflet/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -217,18 +220,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="mi-alma-mater" class="level2">
-<h2 class="anchored" data-anchor-id="mi-alma-mater">Mi alma mater</h2>
+<section id="leaflet-widget" class="level2">
+<h2 class="anchored" data-anchor-id="leaflet-widget">Leaflet Widget</h2>
+<p>Create a map widget using the leaflet package on R</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span>  <span class="co"># Add default OpenStreetMap map tiles</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng=</span><span class="sc">-</span><span class="fl">66.74041348869325</span>, <span class="at">lat=</span><span class="fl">18.468307266376055</span>, <span class="at">popup=</span><span class="st">"Mi Alma Mater🐺"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng=</span><span class="sc">-</span><span class="fl">66.74041348869325</span>, <span class="at">lat=</span><span class="fl">18.468307266376055</span>, <span class="at">popup=</span><span class="st">"Mi Alma Mater🐺"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mi-alma-mater" class="level2">
+<h2 class="anchored" data-anchor-id="mi-alma-mater">Mi alma mater</h2>
+<div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-376c584f63c38df50641" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-376c584f63c38df50641">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[18.46830726637605,-66.74041348869325,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Mi Alma Mater🐺",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[18.46830726637605,18.46830726637605],"lng":[-66.74041348869325,-66.74041348869325]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bef65fc59b3ed373db14" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-bef65fc59b3ed373db14">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[18.46830726637605,-66.74041348869325,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Mi Alma Mater🐺",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[18.46830726637605,18.46830726637605],"lng":[-66.74041348869325,-66.74041348869325]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
