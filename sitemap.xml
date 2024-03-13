@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.wreillo.com/posts.html</loc>
-    <lastmod>2023-09-21T22:30:37.925Z</lastmod>
+    <loc>https://www.wreillo.com/index.html</loc>
+    <lastmod>2024-03-13T21:56:30.088Z</lastmod>
   </url>
   <url>
     <loc>https://www.wreillo.com/posts/rc/index.html</loc>
-    <lastmod>2023-09-21T22:30:36.885Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wreillo.com/index.html</loc>
-    <lastmod>2023-09-21T22:30:34.541Z</lastmod>
+    <lastmod>2024-03-13T21:56:30.092Z</lastmod>
   </url>
   <url>
     <loc>https://www.wreillo.com/posts/leaflet/index.html</loc>
-    <lastmod>2023-09-21T22:30:37.461Z</lastmod>
+    <lastmod>2024-03-13T21:56:30.088Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wreillo.com/posts.html</loc>
+    <lastmod>2024-03-13T21:56:30.088Z</lastmod>
   </url>
 </urlset>

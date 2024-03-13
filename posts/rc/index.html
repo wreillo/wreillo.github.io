@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -84,7 +84,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -93,12 +99,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="../../site_libs/datatables-binding-0.29/datatables.js"></script>
@@ -111,16 +117,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="Behind the keyboard ⌨️ - Research Computing Organizations">
-<meta property="og:description" content="">
+<meta property="og:description" content="this is a test">
 <meta property="og:image" content="https://www.wreillo.com/posts/rc/featured.gif">
-<meta property="og:site-name" content="Behind the keyboard ⌨️">
+<meta property="og:site_name" content="Behind the keyboard ⌨️">
 <meta property="og:image:alt" content="DT with Research Computing Organizations on GitHub">
 <meta name="twitter:title" content="Behind the keyboard ⌨️ - Research Computing Organizations">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.wreillo.com/images/creative-logo.png">
+<meta name="twitter:description" content="this is a test">
+<meta name="twitter:image" content="https://www.wreillo.com/posts/rc/featured.gif">
 <meta name="twitter:creator" content="@genobriel">
-<meta name="twitter:image-height" content="765">
-<meta name="twitter:image-width" content="652">
 <meta name="twitter:image:alt" content="DT with Research Computing Organizations on GitHub">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -128,10 +132,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Behind the keyboard ⌨️</span>
     </a>
@@ -143,28 +147,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts.html" rel="" target="">
- <span class="menu-text">Posts</span></a>
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/wreillo" rel="" target=""><i class="bi bi-github" role="img" aria-label="Github profile">
+    <a class="nav-link" href="https://github.com/wreillo"> <i class="bi bi-github" role="img" aria-label="Github profile">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/genobriel" rel="" target=""><i class="bi bi-twitter" role="img" aria-label="Personal Twitter">
+    <a class="nav-link" href="https://twitter.com/genobriel"> <i class="bi bi-twitter" role="img" aria-label="Personal Twitter">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -210,10 +214,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#research-computing-organizations" id="toc-research-computing-organizations" class="nav-link active" data-scroll-target="#research-computing-organizations">Research Computing Organizations</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/rc/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/rc/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -301,7 +306,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">fixedColumns =</span> <span class="fu">list</span>(<span class="at">leftColumns =</span> <span class="dv">0</span>)))</span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>meta.dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ac271348fdf0962322e0" style="width:100%;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-ac271348fdf0962322e0">{"x":{"filter":"none","vertical":false,"data":[["<a href='https://github.com/AAU-Edge-Computing-and-Networking' target=\"_blank\">AAU-Edge-Computing-and-Networking<\/a>","<a href='https://github.com/ACRC' target=\"_blank\">ACRC<\/a>","<a href='https://github.com/ACRIG' target=\"_blank\">ACRIG<\/a>","<a href='https://github.com/acrlabs' target=\"_blank\">acrlabs<\/a>","<a href='https://github.com/AdvancedResearchComputing' target=\"_blank\">AdvancedResearchComputing<\/a>","<a href='https://github.com/aicer' target=\"_blank\">aicer<\/a>","<a href='https://github.com/ANU-HPC' target=\"_blank\">ANU-HPC<\/a>","<a href='https://github.com/ARCCA' target=\"_blank\">ARCCA<\/a>","<a href='https://github.com/arcs-njit-edu' target=\"_blank\">arcs-njit-edu<\/a>","<a href='https://github.com/arctic-gsu' target=\"_blank\">arctic-gsu<\/a>","<a href='https://github.com/arizona-tri-u-research-computing' target=\"_blank\">arizona-tri-u-research-computing<\/a>","<a href='https://github.com/artshumrc' target=\"_blank\">artshumrc<\/a>","<a href='https://github.com/asgard-lab' target=\"_blank\">asgard-lab<\/a>","<a href='https://github.com/auburn-hpc' target=\"_blank\">auburn-hpc<\/a>","<a href='https://github.com/BCH-RC' target=\"_blank\">BCH-RC<\/a>","<a href='https://github.com/BioComputing' target=\"_blank\">BioComputing<\/a>","<a href='https://github.com/BJTUHPCRT' target=\"_blank\">BJTUHPCRT<\/a>","<a href='https://github.com/BRCBerkeley' target=\"_blank\">BRCBerkeley<\/a>","<a href='https://github.com/bsurc' target=\"_blank\">bsurc<\/a>","<a href='https://github.com/BTH-CEd' target=\"_blank\">BTH-CEd<\/a>","<a href='https://github.com/bu-rcs' target=\"_blank\">bu-rcs<\/a>","<a href='https://github.com/bucorel' target=\"_blank\">bucorel<\/a>","<a href='https://github.com/BVCRG' target=\"_blank\">BVCRG<\/a>","<a href='https://github.com/BW-ICRL' target=\"_blank\">BW-ICRL<\/a>","<a href='https://github.com/BYUHPC' target=\"_blank\">BYUHPC<\/a>","<a href='https://github.com/CAEN-Research-Computing' target=\"_blank\">CAEN-Research-Computing<\/a>","<a href='https://github.com/CaRCC' target=\"_blank\">CaRCC<\/a>","<a href='https://github.com/CaRCC-RCD' target=\"_blank\">CaRCC-RCD<\/a>","<a href='https://github.com/carllabs' target=\"_blank\">carllabs<\/a>","<a href='https://github.com/CCBRC-of-Hainan-Normal-University' target=\"_blank\">CCBRC-of-Hainan-Normal-University<\/a>","<a href='https://github.com/cedr-bits-goa' target=\"_blank\">cedr-bits-goa<\/a>","<a href='https://github.com/CenterForDigitalHumanities' target=\"_blank\">CenterForDigitalHumanities<\/a>","<a href='https://github.com/cer-uga' target=\"_blank\">cer-uga<\/a>","<a href='https://github.com/cla-rce' target=\"_blank\">cla-rce<\/a>","<a href='https://github.com/clemsonciti' target=\"_blank\">clemsonciti<\/a>","<a href='https://github.com/cloudmaven' target=\"_blank\">cloudmaven<\/a>","<a href='https://github.com/CognitiveComputingResearchGroup' target=\"_blank\">CognitiveComputingResearchGroup<\/a>","<a href='https://github.com/ColumbiaSWC' target=\"_blank\">ColumbiaSWC<\/a>","<a href='https://github.com/crcresearch' target=\"_blank\">crcresearch<\/a>","<a href='https://github.com/CSCAR' target=\"_blank\">CSCAR<\/a>","<a href='https://github.com/custom-computing-ic' target=\"_blank\">custom-computing-ic<\/a>","<a href='https://github.com/daqcri' target=\"_blank\">daqcri<\/a>","<a href='https://github.com/DeepLearnXMU' target=\"_blank\">DeepLearnXMU<\/a>","<a href='https://github.com/dscLabJNU' target=\"_blank\">dscLabJNU<\/a>","<a href='https://github.com/DurhamARC' target=\"_blank\">DurhamARC<\/a>","<a href='https://github.com/ecrc' target=\"_blank\">ecrc<\/a>","<a href='https://github.com/ecrcbooks' target=\"_blank\">ecrcbooks<\/a>","<a href='https://github.com/ecrcpapers' target=\"_blank\">ecrcpapers<\/a>","<a href='https://github.com/ecrcposters' target=\"_blank\">ecrcposters<\/a>","<a href='https://github.com/ecrcpresentations' target=\"_blank\">ecrcpresentations<\/a>","<a href='https://github.com/ecrcproposals' target=\"_blank\">ecrcproposals<\/a>","<a href='https://github.com/ecrcthesis' target=\"_blank\">ecrcthesis<\/a>","<a href='https://github.com/fasrc' target=\"_blank\">fasrc<\/a>","<a href='https://github.com/fcrlab-unime' target=\"_blank\">fcrlab-unime<\/a>","<a href='https://github.com/FhA-VC' target=\"_blank\">FhA-VC<\/a>","<a href='https://github.com/fr-cc' target=\"_blank\">fr-cc<\/a>","<a href='https://github.com/fsurcc' target=\"_blank\">fsurcc<\/a>","<a href='https://github.com/FU-CERG' target=\"_blank\">FU-CERG<\/a>","<a href='https://github.com/gmit-computing' target=\"_blank\">gmit-computing<\/a>","<a href='https://github.com/gsbdarc' target=\"_blank\">gsbdarc<\/a>","<a href='https://github.com/gsbrc' target=\"_blank\">gsbrc<\/a>","<a href='https://github.com/HarvardRC' target=\"_blank\">HarvardRC<\/a>","<a href='https://github.com/hbs-rcs' target=\"_blank\">hbs-rcs<\/a>","<a href='https://github.com/HiPerCoRe' target=\"_blank\">HiPerCoRe<\/a>","<a href='https://github.com/hmsrc' target=\"_blank\">hmsrc<\/a>","<a href='https://github.com/HPCC-Cloud-Computing' target=\"_blank\">HPCC-Cloud-Computing<\/a>","<a href='https://github.com/hsci-r' target=\"_blank\">hsci-r<\/a>","<a href='https://github.com/icanlab' target=\"_blank\">icanlab<\/a>","<a href='https://github.com/ICCRO' target=\"_blank\">ICCRO<\/a>","<a href='https://github.com/ipencnensp' target=\"_blank\">ipencnensp<\/a>","<a href='https://github.com/kaust-rc' target=\"_blank\">kaust-rc<\/a>","<a href='https://github.com/kaust-rccl' target=\"_blank\">kaust-rccl<\/a>","<a href='https://github.com/larcc-group' target=\"_blank\">larcc-group<\/a>","<a href='https://github.com/LuCEresearchlab' target=\"_blank\">LuCEresearchlab<\/a>","<a href='https://github.com/MARN-5895' target=\"_blank\">MARN-5895<\/a>","<a href='https://github.com/mcw-rcc' target=\"_blank\">mcw-rcc<\/a>","<a href='https://github.com/mlvccn' target=\"_blank\">mlvccn<\/a>","<a href='https://github.com/MSRCCS' target=\"_blank\">MSRCCS<\/a>","<a href='https://github.com/NERSC' target=\"_blank\">NERSC<\/a>","<a href='https://github.com/northeastern-rc' target=\"_blank\">northeastern-rc<\/a>","<a href='https://github.com/ntubci' target=\"_blank\">ntubci<\/a>","<a href='https://github.com/nuitrcs' target=\"_blank\">nuitrcs<\/a>","<a href='https://github.com/NYUAD-CRC' target=\"_blank\">NYUAD-CRC<\/a>","<a href='https://github.com/odu-rcs' target=\"_blank\">odu-rcs<\/a>","<a href='https://github.com/PEARC-ACM' target=\"_blank\">PEARC-ACM<\/a>","<a href='https://github.com/penncrcu' target=\"_blank\">penncrcu<\/a>","<a href='https://github.com/phs-rcg' target=\"_blank\">phs-rcg<\/a>","<a href='https://github.com/pitt-crc' target=\"_blank\">pitt-crc<\/a>","<a href='https://github.com/PracticumAI' target=\"_blank\">PracticumAI<\/a>","<a href='https://github.com/PSU-Research-Computing' target=\"_blank\">PSU-Research-Computing<\/a>","<a href='https://github.com/RCC-MRU' target=\"_blank\">RCC-MRU<\/a>","<a href='https://github.com/rcc-uchicago' target=\"_blank\">rcc-uchicago<\/a>","<a href='https://github.com/RCEatPitt' target=\"_blank\">RCEatPitt<\/a>","<a href='https://github.com/ResearchComputing' target=\"_blank\">ResearchComputing<\/a>","<a href='https://github.com/researchcomputingteams' target=\"_blank\">researchcomputingteams<\/a>","<a href='https://github.com/RGNC' target=\"_blank\">RGNC<\/a>","<a href='https://github.com/ricct' target=\"_blank\">ricct<\/a>","<a href='https://github.com/rice-crc' target=\"_blank\">rice-crc<\/a>","<a href='https://github.com/RIT-RC' target=\"_blank\">RIT-RC<\/a>","<a href='https://github.com/RSC-RP' target=\"_blank\">RSC-RP<\/a>","<a href='https://github.com/rutgers-oarc' target=\"_blank\">rutgers-oarc<\/a>","<a href='https://github.com/scientificcomputing' target=\"_blank\">scientificcomputing<\/a>","<a href='https://github.com/scientificomputing' target=\"_blank\">scientificomputing<\/a>","<a href='https://github.com/SemanticComputing' target=\"_blank\">SemanticComputing<\/a>","<a href='https://github.com/sfu-rcg' target=\"_blank\">sfu-rcg<\/a>","<a href='https://github.com/simulahpc' target=\"_blank\">simulahpc<\/a>","<a href='https://github.com/SOS-CER' target=\"_blank\">SOS-CER<\/a>","<a href='https://github.com/SSCRIndia' target=\"_blank\">SSCRIndia<\/a>","<a href='https://github.com/stanford-rc' target=\"_blank\">stanford-rc<\/a>","<a href='https://github.com/StAResComp' target=\"_blank\">StAResComp<\/a>","<a href='https://github.com/STFC-ICD-Research-and-Design' target=\"_blank\">STFC-ICD-Research-and-Design<\/a>","<a href='https://github.com/sustainable-computing' target=\"_blank\">sustainable-computing<\/a>","<a href='https://github.com/UA-ResearchComputing-HPC' target=\"_blank\">UA-ResearchComputing-HPC<\/a>","<a href='https://github.com/uabrc' target=\"_blank\">uabrc<\/a>","<a href='https://github.com/UAF-RCS' target=\"_blank\">UAF-RCS<\/a>","<a href='https://github.com/ualberta-rcg' target=\"_blank\">ualberta-rcg<\/a>","<a href='https://github.com/UBC-Advanced-Research-Computing' target=\"_blank\">UBC-Advanced-Research-Computing<\/a>","<a href='https://github.com/ucf-arcc' target=\"_blank\">ucf-arcc<\/a>","<a href='https://github.com/UCL-ARC' target=\"_blank\">UCL-ARC<\/a>","<a href='https://github.com/UCL-ARC-research-computing-with-cpp' target=\"_blank\">UCL-ARC-research-computing-with-cpp<\/a>","<a href='https://github.com/UCR-Research-Computing' target=\"_blank\">UCR-Research-Computing<\/a>","<a href='https://github.com/UCSC-LTRL' target=\"_blank\">UCSC-LTRL<\/a>","<a href='https://github.com/ucsc-srg' target=\"_blank\">ucsc-srg<\/a>","<a href='https://github.com/ucsd-rcd' target=\"_blank\">ucsd-rcd<\/a>","<a href='https://github.com/UFResearchComputing' target=\"_blank\">UFResearchComputing<\/a>","<a href='https://github.com/UMass-RC' target=\"_blank\">UMass-RC<\/a>","<a href='https://github.com/umich-arc' target=\"_blank\">umich-arc<\/a>","<a href='https://github.com/unict-cclab' target=\"_blank\">unict-cclab<\/a>","<a href='https://github.com/UNM-CARC' target=\"_blank\">UNM-CARC<\/a>","<a href='https://github.com/uog-rcaas' target=\"_blank\">uog-rcaas<\/a>","<a href='https://github.com/UQ-RCC' target=\"_blank\">UQ-RCC<\/a>","<a href='https://github.com/URCF' target=\"_blank\">URCF<\/a>","<a href='https://github.com/usc-cloud' target=\"_blank\">usc-cloud<\/a>","<a href='https://github.com/usc-rc' target=\"_blank\">usc-rc<\/a>","<a href='https://github.com/uschpc' target=\"_blank\">uschpc<\/a>","<a href='https://github.com/USDRCG' target=\"_blank\">USDRCG<\/a>","<a href='https://github.com/utsa-rcsg' target=\"_blank\">utsa-rcsg<\/a>","<a href='https://github.com/uvarc' target=\"_blank\">uvarc<\/a>","<a href='https://github.com/uvasomrc' target=\"_blank\">uvasomrc<\/a>","<a href='https://github.com/UWrc' target=\"_blank\">UWrc<\/a>","<a href='https://github.com/vuw-research-computing' target=\"_blank\">vuw-research-computing<\/a>","<a href='https://github.com/WestDRI' target=\"_blank\">WestDRI<\/a>","<a href='https://github.com/WVUHPC' target=\"_blank\">WVUHPC<\/a>","<a href='https://github.com/WVUResearchComputing' target=\"_blank\">WVUResearchComputing<\/a>","<a href='https://github.com/WyoARCC' target=\"_blank\">WyoARCC<\/a>","<a href='https://github.com/WyoARCC-Research' target=\"_blank\">WyoARCC-Research<\/a>","<a href='https://github.com/ycrc' target=\"_blank\">ycrc<\/a>"],["AAU - Edge Computing and Networking Research Group","Advanced Computing Research Centre","Affective Computing Research Interest Group - Universitas Brawijaya","Applied Computing Research Labs","AdvancedResearchComputing","American Institute for Computing Education and Research Inc","Australian National University School of Computing - High Performance Computing Research","Advanced Research Computing @ Cardiff University","NJIT Advanced Research Computing Services","Advanced Research Computing Technology and Innovation Core","Arizona Tri-University Research Computing","Harvard University Arts & Humanities Research Computing (DARTH)","Above the Cloud Computing Research Lab","Auburn University High Performance and Research Computing","Boston Children's Hospital Research Computing","Bio Computing Facility, Arizona Research Labs, University of Arizona","High Performance Computing Research Team of Beijing Jiaotong University","Berkeley Research Computing (BRC)","Boise State Research Computing","BTH Computing Education Research Lab","Boston University Research Computing","Business Computing Research Laboratory","Biometrics and Visual Computing Research Group（BVCRG）","Interdisciplinary Computing Research Lab@Baldwin Wallace","BYU Office of Research Computing","CAEN Research Computing","Campus Research Computing Consortium","Campus Research Computing Consortium","Computing Analytics & Research Lab","Cloud Computing and Bigdata Research Center of Hainan Normal University","Computing Education Research Group at BITS Pilani Goa","Research Computing Group","UGA Computing Education Research Group","University of Minnesota - College of Liberal Arts Research Computing and Engineering","Clemson Research Computing & Data (RCD)","research computing","Cognitive Computing Research Group","Foundations for Research Computing","Center for Research Computing","Consulting for Statistics, Computing & Analytics Research (CSCAR)","Imperial College London Custom Computing Research Group","Data Analytics - Qatar Computing Research Institute, HBKU","Language Data Knowledge Computing Research Group in Xiamen University","Data Management and Cloud Computing Research Lab.","Durham University Advanced Research Computing","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Extreme Computing Research Center","Harvard University Faculty of Arts & Sciences Research Computing","Future Computing Research Laboratory","Fraunhofer Austria Research GmbH - Visual Computing Graz","University of Freiburg Research Computing Center","FSU Research Computing Center","Computing Education Research Group @ FU Berlin","Computing and Data Science Research Group","Stanford GSB -- Data, Analytics, and Research Computing (DARC)","Research Computing at Stanford Graduate School of Business","Harvard Research Computing","Research Computing Services","High Performance Computing Research Group","HMS Research Computing","HUST HPCC Cloud Computing, IoT research group","Human Sciences – Computing Interaction Research Group","iCAN (Innovative Computing and Autonomous Networking) Research Group @ Southeast University","Indian Cognitive Computing Research Organization","Scientific Computing and e-Science Research Group at IPEN-CNEN/SP","KAUST Research Computing","KAUST Research Computing Core Labs","Laboratory of Advanced Research on Cloud Computing - LARCC","Luce - Lugano Computing Education Research Lab","Research Computing in Marine Sciences","MCW Research Computing Center","Machine Learning and Vision Computing (MLVC) Research Group","Microsoft Research: Cloud Computing and Storage","National Energy Research Scientific Computing Center (NERSC)","Northeastern University Research Computing","NTU Brain-Computing Research","Northwestern IT Research Computing and Data Services","Center for Research Computing (NYU Abu Dhabi)","Old Dominion University Research Computing Services","PRACTICE & EXPERIENCE IN ADVANCED RESEARCH COMPUTING","Clinical Research Computing Unit","UChicago Public Health Sciences Research Computing Group","Center for Research Computing","UF Research Computing Practicum AI Program","PSU-Research-Computing","Research Cluster of Computing","University of Chicago Research Computing Center","Research Computing Education @ Pitt","CU Boulder Research Computing","Research Computing Teams","Research Group on Natural Computing","Research Institute of Cloud Computing Technology","Rice University Center for Research Computing","RIT - Research Computing","Research Scientific Computing","Office of Advanced Research Computing","Scientific Computing at Simula Research Laboratory","Scientific Computing Research Unit","Semantic Computing Research Group (SeCo)","Simon Fraser University - Research Computing Group","High Performance Computing at Simula Research Laboratory","Science of Software - Computing Education Research","School of Statistical Computing and Research","Stanford Research Computing Center (SRCC)","University of St Andrews Research Computing","STFC ISIS Computing Research and Design","UofA Sustainable Computing Research Group","UA Research Computing","UAB IT Research Computing","UAF GI Research Computing Systems","University of Alberta Research Computing Group","UBC Advanced Research Computing","UCF Advanced Research Computing Center","UCL Advanced Research Computing Centre","UCL-ARC Research Computing with C++","UCR Research Computing","Language Technology Research Laboratory, University of Colombo School of Computing","Systems Research Group - University of Colombo School of Computing","UCSD Research Computing & Data Community","UF Research Computing","UMass Amherst Research Computing","Advanced Research Computing","Cloud Computing Lab research group","UNM Center for Advanced Research Computing","University of Glasgow - Research Computing as a Service","Research Computing Centre","University Research Computing Facility","USC Cloud Computing Research","Research Computing @ USC","USC Center for Advanced Research Computing","USD Research Computing Group","UTSA - Research Computing Support Group","University of Virginia | Research Computing","UVA Research Computing","U. of Washington Research Computing","VUW Research Computing","Training in Research Computing","WVU Research Computing","WVU ITS - Research Computing","University of Wyoming Advanced Research Computing Center (ARCC)","Research Computing at UW ARCC","Yale Center for Research Computing"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,"https://www.bristol.ac.uk/acrc/",null,"https://appliedcomputing.io","http://arc.vt.edu",null,"https://comp.anu.edu.au/research/computational-science/","http://www.cardiff.ac.uk/arcca/",null,"https://arctic.gsu.edu",null,"https://digitalhumanities.fas.harvard.edu/","http://asgard.dc.ufscar.br",null,null,"http://bcf.arl.arizona.edu",null,"http://research-it.berkeley.edu/brc","https://rcs.boisestate.edu",null,"http://www.bu.edu/tech/support/research/","http://www.bucorel.com","https://academia.caiyong.wang/Research",null,"https://rc.byu.edu",null,null,"http://carcc.org","http://cbkinfotech.in","http://www.hnsoftware.cn/","https://www.researchgate.net/lab/CEdR-Group-Swaroop-Joshi",null,null,"http://latis.umn.edu/","https://ccit.clemson.edu/research","http://cloudmaven.org","http://ccrg.cs.memphis.edu/","https://rcfoundations.research.columbia.edu/","https://crc.nd.edu","http://cscar.research.umich.edu/","http://cc.doc.ic.ac.uk/","http://da.qcri.org",null,null,"https://www.dur.ac.uk/arc/","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://cemse.kaust.edu.sa/ecrc","https://www.rc.fas.harvard.edu/","https://fcrlab.unime.it","https://www.fraunhofer.at/",null,"https://rcc.fsu.edu","http://cerg.mi.fu-berlin.de","http://gmit-computing.github.io/","https://darc.stanford.edu",null,null,"https://www.hbs.edu/rcs/","https://www.cerit-sc.cz/?lang=en","https://rc.hms.harvard.edu",null,"http://heldig.fi/hsci/",null,null,null,"http://kaust-rc.github.io","http://hpc.kaust.edu.sa","https://larcc.setrem.com.br","https://luce.inf.usi.ch",null,null,null,"http://research.microsoft.com/en-us/UM/redmond/groups/ccs/","http://www.nersc.gov","https://rc.northeastern.edu","https://personal.ntu.edu.sg/ctguan/","https://www.it.northwestern.edu/departments/it-services-support/research/",null,null,null,"http://www.cceb.med.upenn.edu/crcu",null,"https://crc.pitt.edu/","http://practicumai.org",null,"https://www.linkedin.com/company/rcc-mru/",null,null,"https://www.colorado.edu/rc",null,"http://www.gcn.us.es/","https://www.ricct.com","https://researchcomputing.rice.edu","http://www.rc.rit.edu","https://www.seattlechildrens.org/research/centers-programs/","https://oarc.rutgers.edu",null,"http://www.scientificomputing.uct.ac.za/","https://seco.cs.aalto.fi","http://rcg.sfu.ca","https://www.simula.no/research/projects/department-high-performance-computing",null,"http://www.sscrindia.org","https://srcc.stanford.edu","http://www.st-andrews.ac.uk/libraryblog/research-computing/",null,"http://webdocs.cs.ualberta.ca/~oardakan/",null,"https://uabrc.github.io","http://rcs.alaska.edu/",null,"https://arc.ubc.ca","https://arcc.ist.ucf.edu","https://www.ucl.ac.uk/arc","https://github-pages.ucl.ac.uk/research-computing-with-cpp/","https://its.ucr.edu/research-computing","https://ucsc.cmb.ac.lk/language-technology-research-laboratory/",null,"https://research-it.ucsd.edu","https://www.rc.ufl.edu",null,"http://arc.umich.edu/",null,"http://carc.unm.edu",null,"https://rcc.uq.edu.au/","https://drexel.edu/research/resources/urcf/","http://ganges.usc.edu/wiki/Cloud_Computing","https://usc-rc.github.io/","https://www.carc.usc.edu/","http://rcg.usd.edu","https://www.utsa.edu/techsolutions/ResearchSupport/","http://rc.virginia.edu/","http://rc.virginia.edu/","https://hyak.uw.edu",null,"https://training.westdri.ca/","https://it.wvu.edu/research/research-computing","https://hpc.wvu.edu","https://arcc.uwyo.edu","https://arcc-collab.atlassian.net/wiki/spaces/SSP/overview","http://research.computing.yale.edu"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>github<\/th>\n      <th>name<\/th>\n      <th>twitter<\/th>\n      <th>website<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":100,"autoWidth":true,"fixedColumns":{"leftColumns":0},"columnDefs":[],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
@@ -352,6 +356,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -420,13 +451,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -505,10 +538,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.wreillo\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -518,8 +568,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -531,7 +590,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -575,6 +757,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -600,6 +783,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -662,13 +871,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><a href="https://www.buymeacoffee.com/wreillo"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" class="img-fluid" alt="BMC" width="125"></a></div>   
+    <div class="nav-footer-left">
+<p><a href="https://www.buymeacoffee.com/wreillo"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" class="img-fluid" alt="BMC" width="125"></a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">Powered by curiosity💡</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/rc/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Powered by curiosity💡</p>
+</div>
   </div>
 </footer>
+
 
 
 
