@@ -23,7 +23,7 @@ page-layout: full
 <body>
     <div class="tile is-6 is-parent" id="left">
       <div class="tile is-child pink post">
-        <p class="title is-2 name">William G. Rodriguez-Reillo</p>
+        <p class="title is-2 name">William G. Rodriguez-Reillo PhD</p>
         <p class="subtitle has-text-grey job">Computational Biologist &amp; Consultant</p>
         <hr class="hr" />
         <div class="content has-text-grey description">
