@@ -9,7 +9,7 @@
 <link>https://www.wreillo.com/posts.html</link>
 <atom:link href="https://www.wreillo.com/posts.xml" rel="self" type="application/rss+xml"/>
 <description>this is a test</description>
-<generator>quarto-1.4.551</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Sat, 16 Sep 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>OpenStreetMap on R + Quarto</title>
@@ -181,6 +181,7 @@ font-style: inherit;">#   To waive the GH API rate limit, github_scrape(...) was
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(org_names){</span>
 <span id="cb2-10"></span>
 <span id="cb2-11">  URL <span class="ot" style="color: #003B4F;
