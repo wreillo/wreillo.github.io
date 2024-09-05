@@ -28,11 +28,9 @@ page-layout: full
         <hr class="hr" />
         <div class="content has-text-grey description">
           <p>
-            My research background is in Computer Science and Microbiology. I have extensive expertise working with large-scale genomic data. 
-            Currently, I work at Harvard Medical School as a Research Computing Consultant. As a consultant, I work closely with researchers 
-            from Harvard and Affiliates hospitals. The consultations range from “I collected new data. What can I do next?” to optimize an 
-            established pipeline. Besides consultations, I help to develop documentation and training to effectively use High-Performance 
-            Computing (HPC) clusters and R for statistical computing and graphics.
+            My research background encompasses both Computer Science and Microbiology, with extensive expertise in handling large-scale genomic data. Currently, I serve as a Research Computing Consultant at Harvard Medical School. In this role, I collaborate closely with researchers from Harvard and its affiliated hospitals, providing guidance on a broad spectrum of inquiries—from advising on next steps after data collection to optimizing established computational workflows.
+
+Additionally, I contribute to the development of comprehensive documentation and training programs, aimed at enhancing effective utilization of High-Performance Computing (HPC) resources and R for statistical computing and data visualization.
           </p>
         </div>
         <div class="buttons">
