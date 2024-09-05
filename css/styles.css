@@ -47,11 +47,6 @@ body {
   height: 100%;
 }
 
-@media (min-width: 769px) {
-  #right {
-    width: 50%;
-  }
-}
 
 #right {
   background-position: center center;
@@ -63,9 +58,10 @@ body {
 @media (min-width: 769px) {
   #right {
     height: 70vh;
-    position: fixed;
+    width: 50%;
+    position: absolute;
     right: 0;
-    top: 0;
+    top: 33%;
   }
 }
 
