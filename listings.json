@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/halloween24/index.html",
       "/posts/leaflet/index.html",
       "/posts/rc/index.html"
     ]
