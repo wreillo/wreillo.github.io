@@ -19,6 +19,7 @@ m <- leaflet() %>%
 ```
 
 ## Mi alma mater
+
 ```{r, echo=FALSE}
 m
 ```
