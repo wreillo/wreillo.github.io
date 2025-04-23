@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,12 +36,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-139f9198a071e9c0c5f7c12a0477efd5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-139f9198a071e9c0c5f7c12a0477efd5.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-fdd845ed006b50e2cc2ffdada4a07b11.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e01d24428556a8a7cee175303847eb20.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -155,14 +155,16 @@ ul.task-list li input[type="checkbox"] {
 
     <div class="tile is-6 is-parent" id="left">
       <div class="tile is-child pink post">
-        <p class="title is-2 name">William G. Rodriguez-Reillo PhD</p>
-        <p class="subtitle has-text-grey job">Computational Biologist &amp; Consultant</p>
+        <p class="title is-2 name">William G. Rodriguez-Reillo Ph.D.</p>
+        <p class="subtitle has-text-grey job">Data Scientist: Needle Finder &amp; Consultant</p>
         <hr class="hr">
         <div class="content has-text-grey description">
           <p>
-            My research background encompasses both Computer Science and Microbiology, with extensive expertise in handling large-scale genomic data. Currently, I serve as a Research Computing Consultant at Harvard Medical School. In this role, I collaborate closely with researchers from Harvard and its affiliated hospitals, providing guidance on a broad spectrum of inquiries—from advising on next steps after data collection to optimizing established computational workflows.
-
-Additionally, I contribute to the development of comprehensive documentation and training programs, aimed at enhancing effective utilization of High-Performance Computing (HPC) resources and R for statistical computing and data visualization.
+          I'm a Research Computing Consultant with a Ph.D. in Organismic and Evolutionary Biology and a passion for bridging science and advanced computing. I specialize in supporting biomedical research through High Performance Computing (HPC), secure data environments, and AI workflow integration.
+          <br><br>
+          With hands-on experience in genomics, containerized software deployment, virtualized infrastructure, and researcher training, I thrive at the intersection of science and scalable infrastructure. My goal is to empower researchers with the tools, platforms, and skills needed to advance discovery.
+          <br><br>
+          Let’s connect if you’re working at the crossroads of science and technology!
           </p>
         </div>
         <div class="buttons">
@@ -411,8 +413,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -523,7 +523,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
