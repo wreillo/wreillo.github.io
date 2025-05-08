@@ -9,13 +9,14 @@
 <link>https://www.wreillo.com/posts.html</link>
 <atom:link href="https://www.wreillo.com/posts.xml" rel="self" type="application/rss+xml"/>
 <description>this is a test</description>
-<generator>quarto-1.6.43</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Fri, 01 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Halloween meets Shiny - Reviewer #2</title>
   <dc:creator>William G. Rodriguez Reillo</dc:creator>
   <link>https://www.wreillo.com/posts/halloween24/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -308,6 +309,7 @@ font-style: inherit;">server =</span> server)</span></code></pre></div>
 
 
 
+
 <section id="leaflet-widget" class="level2">
 <h2 class="anchored" data-anchor-id="leaflet-widget">Leaflet Widget</h2>
 <p>Create a map widget using the leaflet package on R</p>
@@ -372,6 +374,7 @@ font-style: inherit;">"Mi Alma Mater🐺"</span>)</span></code></pre></div>
   <dc:creator>William G. Rodriguez Reillo</dc:creator>
   <link>https://www.wreillo.com/posts/rc/</link>
   <description><![CDATA[ 
+
 
 
 
