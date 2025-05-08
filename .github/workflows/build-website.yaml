@@ -22,7 +22,7 @@ jobs:
       - name: Install Quarto CLI
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install libcurl
+      - name: Install System Libraries
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev \
@@ -30,7 +30,8 @@ jobs:
                         libgdal-dev \
                         libgeos-dev \
                         libproj-dev \
-                        libmysqlclient-dev 
+                        libmysqlclient-dev \
+                        libssl-dev
 
       - name: Put pandoc in PATH
         run: |
