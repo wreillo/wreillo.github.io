@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.wreillo.com/index.html</loc>
-    <lastmod>2025-05-08T00:59:03.979Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wreillo.com/posts/leaflet/index.html</loc>
-    <lastmod>2025-05-08T00:59:03.989Z</lastmod>
+    <loc>https://www.wreillo.com/posts.html</loc>
+    <lastmod>2025-07-01T03:17:13.914Z</lastmod>
   </url>
   <url>
     <loc>https://www.wreillo.com/posts/rc/index.html</loc>
-    <lastmod>2025-05-08T00:59:03.992Z</lastmod>
+    <lastmod>2025-07-01T03:17:13.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wreillo.com/posts/leaflet/index.html</loc>
+    <lastmod>2025-07-01T03:17:13.924Z</lastmod>
   </url>
   <url>
     <loc>https://www.wreillo.com/posts/halloween24/index.html</loc>
-    <lastmod>2025-05-08T00:59:03.982Z</lastmod>
+    <lastmod>2025-07-01T03:17:13.917Z</lastmod>
   </url>
   <url>
-    <loc>https://www.wreillo.com/posts.html</loc>
-    <lastmod>2025-05-08T00:59:03.979Z</lastmod>
+    <loc>https://www.wreillo.com/index.html</loc>
+    <lastmod>2025-07-01T03:17:13.914Z</lastmod>
   </url>
 </urlset>
