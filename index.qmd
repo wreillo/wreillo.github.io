@@ -9,7 +9,7 @@ page-layout: full
 <head>
   <meta charset="utf-8">
   <title>W. Rodriguez</title>
-  <meta name="description" content="Personal Website for WGR.">
+  <meta name="description" content="Personal Website for WGR">
   <meta name="author" content="William G. Rodriguez-Reillo" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="main.css">
