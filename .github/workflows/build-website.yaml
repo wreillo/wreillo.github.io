@@ -17,10 +17,12 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install Quarto CLI
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.9.38
 
       - name: Install System Libraries
         run: |

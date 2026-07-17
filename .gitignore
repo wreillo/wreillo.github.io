@@ -8,3 +8,4 @@ _site/
 *.key
 .DS_Store
 .git
+**/*.quarto_ipynb

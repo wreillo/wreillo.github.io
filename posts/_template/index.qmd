@@ -1,0 +1,9 @@
+---
+title: "Post Title"
+description: "One-line summary"
+date: last-modified
+categories: [tag1, tag2]
+image: featured.png
+---
+
+Write your post here.
