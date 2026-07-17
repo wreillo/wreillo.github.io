@@ -1,0 +1,77 @@
+---
+title: "Migrating This Site to Native Quarto"
+date: "2026-07-17"
+categories: [meta, quarto, github-actions]
+description: "How I moved this site's homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward."
+image: "featured.png"
+image-alt: "Quarto and GitHub Actions logos side by side"
+---
+
+## Why bother
+
+This site has been running on Quarto for a while, and the `posts/` pipeline - one folder per post, `freeze: true`, a listing page that just globs everything - has worked well since day one. But the homepage was a holdout: `index.qmd` was just a raw `{=html}` block wrapping a hand-built Bulma layout, complete with a CDN-loaded FontAwesome kit and a pile of custom CSS to keep it from looking broken. Quarto wasn't doing anything for that page except passing text straight through to Pandoc.
+
+At the same time I switched my day-to-day editor over to [Positron](https://positron.posit.co/), and it seemed like a good moment to actually clean this up rather than keep patching around it.
+
+## What actually needed to change
+
+Turns out less than I expected. The build pipeline itself - `.github/workflows/build-website.yaml` running `quarto render` on push and deploying `_site` to `gh-pages` via `JamesIves/github-pages-deploy-action` - was already doing the right thing. No manual local render-and-push step, no compiled HTML sitting in the repo waiting to go stale. That part was already "native."
+
+The real work was:
+
+**1. Replacing the homepage with an actual Quarto `about:` page**
+
+``` yaml
+---
+title: "William G. Rodriguez-Reillo, Ph.D."
+image: images/background.jpg
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/wreillo
+    - icon: github
+      text: GitHub
+      href: https://github.com/wreillo
+    - icon: twitter-x
+      text: X/Twitter
+      href: https://x.com/genobriel
+---
+```
+
+One YAML block replaced a couple hundred lines of hardcoded markup, and I got to drop the Bulma/FontAwesome CDN dependencies entirely.
+
+**2. A repeatable pattern for new posts**
+
+The `posts/<slug>/index.qmd` convention was already solid, so I just formalized it with a template folder and a tiny scaffold script:
+
+``` bash
+./new-post.sh website-migration
+```
+
+which copies `posts/_template/index.qmd` into a new folder. Nothing fancy - the listing page already globs `posts/*/index.qmd`, so a new folder just shows up.
+
+**3. Verifying the deploy step wouldn't blow anything up**
+
+I was also bumping `JamesIves/github-pages-deploy-action` up a few versions, which touches the one step in this whole pipeline capable of actually damaging something (force-pushing to `gh-pages`). Rather than find out the hard way, I tested it with the action's own `dry-run: true` input on a throwaway branch first - it runs the full push logic but appends `--dry-run` to the actual `git push`, so nothing lands until you're sure:
+
+``` yaml
+- name: Deploy 🚀 (dry run)
+  uses: JamesIves/github-pages-deploy-action@v4
+  with:
+    branch: gh-pages
+    folder: _site
+    dry-run: true
+```
+
+Confirmed clean in the Action logs, then flipped `dry-run` back off for real.
+
+## Editing in Positron
+
+The move to Positron ended up being the least eventful part of this, in a good way - it just works. It picks up `renv.lock` and offers to restore the environment, every `.qmd` gets a render button and live preview, and `quarto preview` in the integrated terminal gives hot-reload while editing. Nothing about the authoring workflow needed to change to make this migration happen; I just needed the homepage itself to stop lying about being a Quarto document.
+
+## What's left
+
+`wreillo.github.io.Rproj` is still sitting in the repo as a relic from the RStudio days - harmless, but no longer doing anything for me. Might clean that out next. For now, the site renders faster, the homepage is actual markdown I can edit without wading through `<div>` soup, and adding a new post is one script call away.
