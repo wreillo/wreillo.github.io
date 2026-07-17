@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Behind the keyboard ⌨️",
     "section": "",
-    "text": "An space to explore new ideas, concepts, and share it with others. The website layout is adapted from the quarto-tip-a-day github page.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nHalloween meets Shiny - Reviewer #2\n\n\n\n\n\n\nNov 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenStreetMap on R + Quarto\n\n\n\n\n\n\nSep 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Computing Organizations\n\n\n\n\n\n\nSep 12, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "An space to explore new ideas, concepts, and share it with others. The website layout is adapted from the quarto-tip-a-day github page.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMigrating This Site to Native Quarto\n\n\nHow I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.\n\n\n\nJul 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nHalloween meets Shiny - Reviewer #2\n\n\n\n\n\n\nNov 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenStreetMap on R + Quarto\n\n\n\n\n\n\nSep 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Computing Organizations\n\n\n\n\n\n\nSep 12, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/halloween24/index.html",
@@ -26,6 +26,41 @@
     "title": "Research Computing Organizations",
     "section": "",
     "text": "Simple R script to pull GitHub profiles matching for research computing in the organization name\n\nlibrary('rlist')\nsuppressMessages(library('dplyr'))\nlibrary('rvest')\nlibrary('xml2')\nlibrary('DT')\n\n\n## Search Research Computing organizations\nrc.org &lt;- \"https://api.github.com/search/users?q=research+computing+in:name+type:org&type=Users&per_page=100&page=%d\" %&gt;%\n  sprintf(1:2) %&gt;% list.load(\"json\") %&gt;% list.ungroup(level = 3) %&gt;%\n  .[names(.) %in% 'login'] %&gt;% as.character\n\n# Scrape Function\n#   The resulted on n=130 \"Research Computing\" organizations. \n#   To waive the GH API rate limit, github_scrape(...) was used\ngithub_scrape &lt;- function(org_names){\n\n  URL &lt;- paste0(\"https://github.com/\", org_names)\n  edata &lt;- read_html(URL)\n  body_nodes &lt;- edata %&gt;%\n    html_node('body') %&gt;%\n    html_children()\n  \n  # LOCATION\n  LOCATION &lt;- body_nodes %&gt;% \n    xml_find_all(\"//span[contains(@itemprop, 'location')]\") %&gt;% \n    html_text()\n  \n  # Organization website\n  WEBSITE &lt;- body_nodes %&gt;% \n    xml_find_all(\"//a[contains(@itemprop, 'url')]\") %&gt;% \n    html_text() %&gt;% tibble::enframe() %&gt;% \n    filter(!startsWith(value,'@')) %&gt;% \n    select(value) %&gt;% as.character()\n  \n  # Organization Name\n  NAME &lt;- body_nodes %&gt;% \n    xml_find_all(\"//h1[contains(@class, 'h2 lh-condensed')]\") %&gt;% \n    html_text() %&gt;%\n    gsub(pattern = \"\\\\s+\",replacement = \" \") %&gt;% \n    stringr::str_trim()\n  \n  # Twitter handle\n  TWITTER &lt;- body_nodes %&gt;% \n    xml_find_all(\"//a[contains(@itemprop, 'url')]\") %&gt;% \n    html_text() %&gt;% tibble::enframe() %&gt;% \n    filter(startsWith(value,'@')) %&gt;% \n    select(value) %&gt;% as.character()\n  \n  # Metadata vector\n  VEC &lt;- c(github=org_names,name=NAME, website=WEBSITE,twitter=TWITTER)\n  return(VEC)\n}\n\n# Do call\nrc.metadata &lt;- do.call(rbind,lapply(rc.org, FUN=github_scrape))\n\n# Load scraped metadata\nmeta.df &lt;- as.data.frame(rc.metadata)\nmeta.df &lt;- meta.df[order(meta.df$github),]\n\n# Add GitHub hyperlinks\nghURL &lt;- paste0(\"https://github.com/\", meta.df$github)\nmeta.df$github &lt;-paste0(\"&lt;a href='\",ghURL,\"'\",\n                        ' target=\\\"_blank\\\"&gt;',\n                        meta.df$github,\"&lt;/a&gt;\")\n# Remove NA's\nmeta.df[meta.df == \"character(0)\"] &lt;- NA\n\n# Reorder columns\nmeta.df &lt;- subset(meta.df, select=c('github','name','twitter','website'))\n\n# Convert to DT\nmeta.dt &lt;- DT::datatable(meta.df,escape = F,rownames = F,\n                         options = list(pageLength = 100,\n                                        autoWidth = TRUE,\n                                        fixedColumns = list(leftColumns = 0)))\nmeta.dt"
+  },
+  {
+    "objectID": "posts/website-migration/index.html",
+    "href": "posts/website-migration/index.html",
+    "title": "Migrating This Site to Native Quarto",
+    "section": "",
+    "text": "This site has been running on Quarto for a while, and the posts/ pipeline - one folder per post, freeze: true, a listing page that just globs everything - has worked well since day one. But the homepage was a holdout: index.qmd was just a raw {=html} block wrapping a hand-built Bulma layout, complete with a CDN-loaded FontAwesome kit and a pile of custom CSS to keep it from looking broken. Quarto wasn’t doing anything for that page except passing text straight through to Pandoc.\nAt the same time I switched my day-to-day editor over to Positron, and it seemed like a good moment to actually clean this up rather than keep patching around it."
+  },
+  {
+    "objectID": "posts/website-migration/index.html#why-bother",
+    "href": "posts/website-migration/index.html#why-bother",
+    "title": "Migrating This Site to Native Quarto",
+    "section": "",
+    "text": "This site has been running on Quarto for a while, and the posts/ pipeline - one folder per post, freeze: true, a listing page that just globs everything - has worked well since day one. But the homepage was a holdout: index.qmd was just a raw {=html} block wrapping a hand-built Bulma layout, complete with a CDN-loaded FontAwesome kit and a pile of custom CSS to keep it from looking broken. Quarto wasn’t doing anything for that page except passing text straight through to Pandoc.\nAt the same time I switched my day-to-day editor over to Positron, and it seemed like a good moment to actually clean this up rather than keep patching around it."
+  },
+  {
+    "objectID": "posts/website-migration/index.html#what-actually-needed-to-change",
+    "href": "posts/website-migration/index.html#what-actually-needed-to-change",
+    "title": "Migrating This Site to Native Quarto",
+    "section": "What actually needed to change",
+    "text": "What actually needed to change\nTurns out less than I expected. The build pipeline itself - .github/workflows/build-website.yaml running quarto render on push and deploying _site to gh-pages via JamesIves/github-pages-deploy-action - was already doing the right thing. No manual local render-and-push step, no compiled HTML sitting in the repo waiting to go stale. That part was already “native.”\nThe real work was:\n1. Replacing the homepage with an actual Quarto about: page\n---\ntitle: \"William G. Rodriguez-Reillo, Ph.D.\"\nimage: images/background.jpg\nabout:\n  template: trestles\n  image-shape: round\n  links:\n    - icon: linkedin\n      text: LinkedIn\n      href: https://linkedin.com/in/wreillo\n    - icon: github\n      text: GitHub\n      href: https://github.com/wreillo\n    - icon: twitter-x\n      text: X/Twitter\n      href: https://x.com/genobriel\n---\nOne YAML block replaced a couple hundred lines of hardcoded markup, and I got to drop the Bulma/FontAwesome CDN dependencies entirely.\n2. A repeatable pattern for new posts\nThe posts/&lt;slug&gt;/index.qmd convention was already solid, so I just formalized it with a template folder and a tiny scaffold script:\n./new-post.sh website-migration\nwhich copies posts/_template/index.qmd into a new folder. Nothing fancy - the listing page already globs posts/*/index.qmd, so a new folder just shows up.\n3. Verifying the deploy step wouldn’t blow anything up\nI was also bumping JamesIves/github-pages-deploy-action up a few versions, which touches the one step in this whole pipeline capable of actually damaging something (force-pushing to gh-pages). Rather than find out the hard way, I tested it with the action’s own dry-run: true input on a throwaway branch first - it runs the full push logic but appends --dry-run to the actual git push, so nothing lands until you’re sure:\n- name: Deploy 🚀 (dry run)\n  uses: JamesIves/github-pages-deploy-action@v4\n  with:\n    branch: gh-pages\n    folder: _site\n    dry-run: true\nConfirmed clean in the Action logs, then flipped dry-run back off for real."
+  },
+  {
+    "objectID": "posts/website-migration/index.html#editing-in-positron",
+    "href": "posts/website-migration/index.html#editing-in-positron",
+    "title": "Migrating This Site to Native Quarto",
+    "section": "Editing in Positron",
+    "text": "Editing in Positron\nThe move to Positron ended up being the least eventful part of this, in a good way - it just works. It picks up renv.lock and offers to restore the environment, every .qmd gets a render button and live preview, and quarto preview in the integrated terminal gives hot-reload while editing. Nothing about the authoring workflow needed to change to make this migration happen; I just needed the homepage itself to stop lying about being a Quarto document."
+  },
+  {
+    "objectID": "posts/website-migration/index.html#whats-left",
+    "href": "posts/website-migration/index.html#whats-left",
+    "title": "Migrating This Site to Native Quarto",
+    "section": "What’s left",
+    "text": "What’s left\nwreillo.github.io.Rproj is still sitting in the repo as a relic from the RStudio days - harmless, but no longer doing anything for me. Might clean that out next. For now, the site renders faster, the homepage is actual markdown I can edit without wading through &lt;div&gt; soup, and adding a new post is one script call away."
   },
   {
     "objectID": "posts/leaflet/index.html",

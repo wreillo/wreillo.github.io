@@ -10,7 +10,284 @@
 <atom:link href="https://www.wreillo.com/posts.xml" rel="self" type="application/rss+xml"/>
 <description>this is a test</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Fri, 01 Nov 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 17 Jul 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Migrating This Site to Native Quarto</title>
+  <dc:creator>William G. Rodriguez Reillo</dc:creator>
+  <link>https://www.wreillo.com/posts/website-migration/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="why-bother" class="level2">
+<h2 class="anchored" data-anchor-id="why-bother">Why bother</h2>
+<p>This site has been running on Quarto for a while, and the <code>posts/</code> pipeline - one folder per post, <code>freeze: true</code>, a listing page that just globs everything - has worked well since day one. But the homepage was a holdout: <code>index.qmd</code> was just a raw <code>{=html}</code> block wrapping a hand-built Bulma layout, complete with a CDN-loaded FontAwesome kit and a pile of custom CSS to keep it from looking broken. Quarto wasn’t doing anything for that page except passing text straight through to Pandoc.</p>
+<p>At the same time I switched my day-to-day editor over to <a href="https://positron.posit.co/">Positron</a>, and it seemed like a good moment to actually clean this up rather than keep patching around it.</p>
+</section>
+<section id="what-actually-needed-to-change" class="level2">
+<h2 class="anchored" data-anchor-id="what-actually-needed-to-change">What actually needed to change</h2>
+<p>Turns out less than I expected. The build pipeline itself - <code>.github/workflows/build-website.yaml</code> running <code>quarto render</code> on push and deploying <code>_site</code> to <code>gh-pages</code> via <code>JamesIves/github-pages-deploy-action</code> - was already doing the right thing. No manual local render-and-push step, no compiled HTML sitting in the repo waiting to go stale. That part was already “native.”</p>
+<p>The real work was:</p>
+<p><strong>1. Replacing the homepage with an actual Quarto <code>about:</code> page</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"William G. Rodriguez-Reillo, Ph.D."</span></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">image</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> images/background.jpg</span></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">about</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">template</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> trestles</span></span>
+<span id="cb1-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">image-shape</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> round</span></span>
+<span id="cb1-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">links</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icon</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> linkedin</span></span>
+<span id="cb1-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">text</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> LinkedIn</span></span>
+<span id="cb1-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">href</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> https://linkedin.com/in/wreillo</span></span>
+<span id="cb1-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icon</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> github</span></span>
+<span id="cb1-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">text</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> GitHub</span></span>
+<span id="cb1-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">href</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> https://github.com/wreillo</span></span>
+<span id="cb1-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icon</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> twitter-x</span></span>
+<span id="cb1-15"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">text</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> X/Twitter</span></span>
+<span id="cb1-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">href</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> https://x.com/genobriel</span></span>
+<span id="cb1-17"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div></div>
+<p>One YAML block replaced a couple hundred lines of hardcoded markup, and I got to drop the Bulma/FontAwesome CDN dependencies entirely.</p>
+<p><strong>2. A repeatable pattern for new posts</strong></p>
+<p>The <code>posts/&lt;slug&gt;/index.qmd</code> convention was already solid, so I just formalized it with a template folder and a tiny scaffold script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">./new-post.sh</span> website-migration</span></code></pre></div></div>
+<p>which copies <code>posts/_template/index.qmd</code> into a new folder. Nothing fancy - the listing page already globs <code>posts/*/index.qmd</code>, so a new folder just shows up.</p>
+<p><strong>3. Verifying the deploy step wouldn’t blow anything up</strong></p>
+<p>I was also bumping <code>JamesIves/github-pages-deploy-action</code> up a few versions, which touches the one step in this whole pipeline capable of actually damaging something (force-pushing to <code>gh-pages</code>). Rather than find out the hard way, I tested it with the action’s own <code>dry-run: true</code> input on a throwaway branch first - it runs the full push logic but appends <code>--dry-run</code> to the actual <code>git push</code>, so nothing lands until you’re sure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Deploy 🚀 (dry run)</span></span>
+<span id="cb3-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> JamesIves/github-pages-deploy-action@v4</span></span>
+<span id="cb3-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">branch</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> gh-pages</span></span>
+<span id="cb3-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">folder</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> _site</span></span>
+<span id="cb3-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dry-run</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">true</span></span></code></pre></div></div>
+<p>Confirmed clean in the Action logs, then flipped <code>dry-run</code> back off for real.</p>
+</section>
+<section id="editing-in-positron" class="level2">
+<h2 class="anchored" data-anchor-id="editing-in-positron">Editing in Positron</h2>
+<p>The move to Positron ended up being the least eventful part of this, in a good way - it just works. It picks up <code>renv.lock</code> and offers to restore the environment, every <code>.qmd</code> gets a render button and live preview, and <code>quarto preview</code> in the integrated terminal gives hot-reload while editing. Nothing about the authoring workflow needed to change to make this migration happen; I just needed the homepage itself to stop lying about being a Quarto document.</p>
+</section>
+<section id="whats-left" class="level2">
+<h2 class="anchored" data-anchor-id="whats-left">What’s left</h2>
+<p><code>wreillo.github.io.Rproj</code> is still sitting in the repo as a relic from the RStudio days - harmless, but no longer doing anything for me. Might clean that out next. For now, the site renders faster, the homepage is actual markdown I can edit without wading through <code>&lt;div&gt;</code> soup, and adding a new post is one script call away.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>meta</category>
+  <category>quarto</category>
+  <category>github-actions</category>
+  <guid>https://www.wreillo.com/posts/website-migration/</guid>
+  <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://www.wreillo.com/posts/website-migration/featured.png" medium="image" type="image/png" height="144" width="144"/>
+</item>
 <item>
   <title>Halloween meets Shiny - Reviewer #2</title>
   <dc:creator>William G. Rodriguez Reillo</dc:creator>

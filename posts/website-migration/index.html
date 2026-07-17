@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="William G. Rodriguez Reillo">
+<meta name="dcterms.date" content="2026-07-17">
+<meta name="description" content="How I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.">
 
-<title>posts – Behind the keyboard ⌨️</title>
+<title>Migrating This Site to Native Quarto – Behind the keyboard ⌨️</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,33 +26,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/profile.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-76e7bb1d233b7ba71c2e5a41ac697b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-15938c02bdab8c31c9f4e3fa017c4e18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-76e7bb1d233b7ba71c2e5a41ac697b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/profile.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a92316daa43a8c77deb54b5f2f92ea6f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-76e7bb1d233b7ba71c2e5a41ac697b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-15938c02bdab8c31c9f4e3fa017c4e18.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-76e7bb1d233b7ba71c2e5a41ac697b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,79 +113,22 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="Behind the keyboard ⌨️" href="posts.xml" data-external="1"><meta property="og:title" content="Behind the keyboard ⌨️">
-<meta property="og:description" content="this is a test">
+<meta property="og:title" content="Migrating This Site to Native Quarto – Behind the keyboard ⌨️">
+<meta property="og:description" content="How I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.">
 <meta property="og:image" content="https://www.wreillo.com/posts/website-migration/featured.png">
 <meta property="og:site_name" content="Behind the keyboard ⌨️">
-<meta property="og:image:alt" content="Quarto and GitHub Actions logos side by side">
 <meta property="og:image:height" content="512">
 <meta property="og:image:width" content="512">
-<meta name="twitter:title" content="Behind the keyboard ⌨️">
-<meta name="twitter:description" content="this is a test">
-<meta name="twitter:image" content="https://www.wreillo.com/images/creative-logo.png">
+<meta property="og:image:alt" content="Quarto and GitHub Actions logos side by side">
+<meta name="twitter:title" content="Migrating This Site to Native Quarto – Behind the keyboard ⌨️">
+<meta name="twitter:description" content="How I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.">
+<meta name="twitter:image" content="https://www.wreillo.com/posts/website-migration/featured.png">
 <meta name="twitter:creator" content="@genobriel">
-<meta name="twitter:image-height" content="765">
-<meta name="twitter:image-width" content="652">
+<meta name="twitter:image-height" content="512">
+<meta name="twitter:image-width" content="512">
+<meta name="twitter:image:alt" content="Quarto and GitHub Actions logos side by side">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -322,7 +301,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Behind the keyboard ⌨️</span>
     </a>
   </div>
@@ -333,11 +312,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item compact">
@@ -359,135 +338,121 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Migrating This Site to Native Quarto</h1>
+                  <div>
+        <div class="description">
+          How I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">meta</div>
+                <div class="quarto-category">quarto</div>
+                <div class="quarto-category">github-actions</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>William G. Rodriguez Reillo </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 17, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Z2l0aHViLWFjdGlvbnM=">github-actions <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFwcw==">maps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWV0YQ==">meta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFibGVz">tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGV4dA==">text <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-<p>An space to explore new ideas, concepts, and share it with others. The website layout is adapted from the <em>quarto-tip-a-day</em> github page.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-bother" id="toc-why-bother" class="nav-link active" data-scroll-target="#why-bother">Why bother</a></li>
+  <li><a href="#what-actually-needed-to-change" id="toc-what-actually-needed-to-change" class="nav-link" data-scroll-target="#what-actually-needed-to-change">What actually needed to change</a></li>
+  <li><a href="#editing-in-positron" id="toc-editing-in-positron" class="nav-link" data-scroll-target="#editing-in-positron">Editing in Positron</a></li>
+  <li><a href="#whats-left" id="toc-whats-left" class="nav-link" data-scroll-target="#whats-left">What’s left</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/website-migration/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
-</div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="bWV0YSUyQ3F1YXJ0byUyQ2dpdGh1Yi1hY3Rpb25z" data-listing-date-sort="1784246400000" data-listing-file-modified-sort="1784324988294" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577">
-<a href="./posts/website-migration/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/website-migration/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Quarto and GitHub Actions logos side by side">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Migrating This Site to Native Quarto
-</h5>
-<div class="card-text listing-description delink">
-<p>How I moved this site’s homepage off hand-rolled HTML, cleaned up the build pipeline, and set up Positron for authoring going forward.</p>
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 17, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="dGV4dA==" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1784324988284" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="812">
-<a href="./posts/halloween24/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/halloween24/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Spooky Shiny icon in a forest at night">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Halloween meets Shiny - Reviewer #2
-</h5>
-<div class="card-text listing-description delink">
-This is the story of how a simple Shiny app became part of my costume for the Halloween TG at Scripps Oceanography.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 1, 2024
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="bWFwcw==" data-listing-date-sort="1694822400000" data-listing-file-modified-sort="1784324988290" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
-<a href="./posts/leaflet/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/leaflet/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="Pin of my college">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-OpenStreetMap on R + Quarto
-</h5>
-<div class="card-text listing-description delink">
-Create a map widget using the leaflet package on R
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 16, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="dGFibGVz" data-listing-date-sort="1694476800000" data-listing-file-modified-sort="1784324988293" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="884">
-<a href="./posts/rc/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/rc/featured.gif" class="thumbnail-image card-img" style="height: 150px;" alt="DT with Research Computing Organizations on GitHub">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Research Computing Organizations
-</h5>
-<div class="card-text listing-description delink">
-Simple R script to pull GitHub profiles matching for <em>research computing</em> in the organization name
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 12, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+
+<section id="why-bother" class="level2">
+<h2 class="anchored" data-anchor-id="why-bother">Why bother</h2>
+<p>This site has been running on Quarto for a while, and the <code>posts/</code> pipeline - one folder per post, <code>freeze: true</code>, a listing page that just globs everything - has worked well since day one. But the homepage was a holdout: <code>index.qmd</code> was just a raw <code>{=html}</code> block wrapping a hand-built Bulma layout, complete with a CDN-loaded FontAwesome kit and a pile of custom CSS to keep it from looking broken. Quarto wasn’t doing anything for that page except passing text straight through to Pandoc.</p>
+<p>At the same time I switched my day-to-day editor over to <a href="https://positron.posit.co/">Positron</a>, and it seemed like a good moment to actually clean this up rather than keep patching around it.</p>
+</section>
+<section id="what-actually-needed-to-change" class="level2">
+<h2 class="anchored" data-anchor-id="what-actually-needed-to-change">What actually needed to change</h2>
+<p>Turns out less than I expected. The build pipeline itself - <code>.github/workflows/build-website.yaml</code> running <code>quarto render</code> on push and deploying <code>_site</code> to <code>gh-pages</code> via <code>JamesIves/github-pages-deploy-action</code> - was already doing the right thing. No manual local render-and-push step, no compiled HTML sitting in the repo waiting to go stale. That part was already “native.”</p>
+<p>The real work was:</p>
+<p><strong>1. Replacing the homepage with an actual Quarto <code>about:</code> page</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"William G. Rodriguez-Reillo, Ph.D."</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> images/background.jpg</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">about</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">template</span><span class="kw">:</span><span class="at"> trestles</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">image-shape</span><span class="kw">:</span><span class="at"> round</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">links</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> linkedin</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> LinkedIn</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> https://linkedin.com/in/wreillo</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> GitHub</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> https://github.com/wreillo</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> twitter-x</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> X/Twitter</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> https://x.com/genobriel</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>One YAML block replaced a couple hundred lines of hardcoded markup, and I got to drop the Bulma/FontAwesome CDN dependencies entirely.</p>
+<p><strong>2. A repeatable pattern for new posts</strong></p>
+<p>The <code>posts/&lt;slug&gt;/index.qmd</code> convention was already solid, so I just formalized it with a template folder and a tiny scaffold script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./new-post.sh</span> website-migration</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>which copies <code>posts/_template/index.qmd</code> into a new folder. Nothing fancy - the listing page already globs <code>posts/*/index.qmd</code>, so a new folder just shows up.</p>
+<p><strong>3. Verifying the deploy step wouldn’t blow anything up</strong></p>
+<p>I was also bumping <code>JamesIves/github-pages-deploy-action</code> up a few versions, which touches the one step in this whole pipeline capable of actually damaging something (force-pushing to <code>gh-pages</code>). Rather than find out the hard way, I tested it with the action’s own <code>dry-run: true</code> input on a throwaway branch first - it runs the full push logic but appends <code>--dry-run</code> to the actual <code>git push</code>, so nothing lands until you’re sure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Deploy 🚀 (dry run)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> JamesIves/github-pages-deploy-action@v4</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branch</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">folder</span><span class="kw">:</span><span class="at"> _site</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">dry-run</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Confirmed clean in the Action logs, then flipped <code>dry-run</code> back off for real.</p>
+</section>
+<section id="editing-in-positron" class="level2">
+<h2 class="anchored" data-anchor-id="editing-in-positron">Editing in Positron</h2>
+<p>The move to Positron ended up being the least eventful part of this, in a good way - it just works. It picks up <code>renv.lock</code> and offers to restore the environment, every <code>.qmd</code> gets a render button and live preview, and <code>quarto preview</code> in the integrated terminal gives hot-reload while editing. Nothing about the authoring workflow needed to change to make this migration happen; I just needed the homepage itself to stop lying about being a Quarto document.</p>
+</section>
+<section id="whats-left" class="level2">
+<h2 class="anchored" data-anchor-id="whats-left">What’s left</h2>
+<p><code>wreillo.github.io.Rproj</code> is still sitting in the repo as a relic from the RStudio days - harmless, but no longer doing anything for me. Might clean that out next. For now, the site renders faster, the homepage is actual markdown I can edit without wading through <code>&lt;div&gt;</code> soup, and adding a new post is one script call away.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -909,7 +874,7 @@ Sep 12, 2023
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/wreillo/wreillo.github.io/edit/main/posts/website-migration/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/wreillo/wreillo.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Powered by curiosity💡</p>
 </div>
